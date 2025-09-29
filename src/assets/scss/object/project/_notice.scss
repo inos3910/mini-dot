@@ -1,0 +1,59 @@
+@use "global" as *;
+
+.p-notice {
+  margin-top: min(vw-size-sp(45), 45px);
+  font-size: clamp(10px, vw-size-sp(24), 14px);
+  line-height: 1.5;
+  font-weight: 600;
+  @include responsive(md) {
+    margin-top: vw-size-pc(45);
+    font-size: vw-size-pc(14);
+  }
+  @include responsive(xxl) {
+    margin-top: 45px;
+    font-size: 14px;
+  }
+
+  a {
+    border-bottom: 1px solid transparent;
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+
+    @media (any-hover: hover) {
+      transition: $transition;
+      transition-property: border-bottom-color;
+      &:hover {
+        border-bottom-color: currentColor;
+      }
+    }
+  }
+}
+
+.p-notice__inner {
+  contain: paint;
+  position: relative;
+  z-index: 1;
+  padding: min(vw-size-sp(36), 24px) min(vw-size-sp(30), 30px);
+  border-radius: var(--radius);
+  @include responsive(md) {
+    padding: vw-size-pc(24) vw-size-pc(30);
+  }
+  @include responsive(xxl) {
+    padding: 24px 30px;
+  }
+
+  &::before {
+    content: "";
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+  }
+}

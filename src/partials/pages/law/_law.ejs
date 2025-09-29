@@ -1,0 +1,66 @@
+<div id="law">
+  <h2>特定商取引法に基づく表記</h2>
+  <h3>事業者の名称</h3>
+  <p>SHARESL</p>
+  <h3>事業者の所在地</h3>
+  <p>郵便番号 ：000-0000</p>
+  <p>住所 ：大阪府大阪市中央区大阪城１−１</p>
+  <h3>事業者の連絡先</h3>
+  <p class="law__telNumber">電話番号 ：
+    <img src="<%= page.homeUrl %>/assets/images/base/convert_image.png" style="vertical-align: bottom;" alt="">
+    <span id="telnumValid" class="telnumValid">
+      <img class="telnumValid__icon" src="<%= page.homeUrl %>/assets/images/base/ico_valid.png" alt="" style="width:80px;">
+      <span class="telnumValid__txt">有効であることが確認された正しい電話番号です。</span>
+    </span>
+    <style type="text/css">
+      .telnumValid {
+        cursor: pointer;
+        display: inline-block;
+        padding: 0 0 0 5px;
+        position: relative;
+      }
+
+      .telnumValid img {
+        vertical-align: middle;
+      }
+
+      .telnumValid__txt {
+        opacity: 0;
+        background-color: #dcdcdc;
+        border-radius: 4px;
+        font-size: 11px;
+        letter-spacing: 0;
+        padding: 3px 0;
+        position: absolute;
+        left: 8px;
+        top: -32px;
+        text-align: center;
+        width: 280px;
+      }
+
+      .telnumValid:hover .telnumValid__txt {
+        opacity: 1;
+        transition: opacity 0.2s ease-in;
+      }
+
+      @media only screen and (max-width: 519px) {
+        .telnumValid__txt {
+          display: none;
+        }
+      }
+
+      .u_taR {
+        text-align: right !important;
+      }
+    </style>
+  </p>
+  <p>営業時間：10:00〜19:00　定休日：土日祝</p>
+  <h3>販売価格について</h3>
+  <p>販売価格は、表示された金額（表示価格/消費税込）と致します。</p>
+  <h3>代金（対価）の支払方法と時期</h3>
+  <p>支払方法：クレジットカードによる決済がご利用頂けます。支払時期：商品注文確定時でお支払いが確定致します。</p>
+  <h3>役務または商品の引渡時期</h3>
+  <p>配送のご依頼を受けてから10営業日以内に発送いたします。</p>
+  <h3>返品についての特約に関する事項</h3>
+  <p>商品に欠陥がある場合を除き、基本的には返品には応じません。</p>
+</div>

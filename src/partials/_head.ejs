@@ -1,0 +1,55 @@
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title><%= page.title %></title>
+ <meta name="description" content="<%= page.description %>">
+ <script>
+   //no-js対応
+   document.documentElement.classList.remove('no-js');
+   var FONT_FAMILY = 'gothic';
+ </script>
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+ <link rel="preload" as="script" href="<%= host %>/src/assets/js/font.js?<%= now %>" fetchpriority="high">
+ <link rel="preload" as="script" href="<%= host %>/src/assets/js/icon.js?<%= now %>" fetchpriority="high">
+ <link rel="preload" as="script" href="<%= host %>/src/assets/js/main.js?<%= now %>" fetchpriority="high">
+
+ <script type="module" src="<%= host %>/src/assets/js/font.js" async></script>
+ <script type="module" src="<%= host %>/src/assets/js/icon.js" async></script>
+ <style type="text/css">
+   body {
+     background-image: none;
+     background-color: #fff;
+   }
+ </style>
+ <style>
+   html {
+     --main-text-color: #000;
+     --font-family: var(--font-gothic);
+     --items-col-sp: 2;
+     --items-col-pc: 3;
+     --thumbnail-aspect-ratio: 4/3;
+     --thumbnail-trim-size: 100%;
+     --thumbnail-trim-fit: cover;
+   }
+ </style>
+ <script>
+   var BASE_SETTINGS = {
+     feed: "<%= host %>/api/blog-feed.json",
+     feedCount: 6,
+     items: "<%= host %>/api/load-items.html",
+     itemsParam: "",
+     itemMaxPage: "10",
+     itemNextPage: "2",
+     category: "ITEMS",
+     baseUrl: "<%= host %>/",
+     shopId: "mini-dot",
+     history: "<%= host %>/api/item_histories.html",
+     sale: "<%= host %>/api/sale_items.html",
+     random: "<%= host %>/api/random_items.html",
+     scrollEffect: true,
+     showLastOne: true,
+   };
+ </script>
+ <script type="module" src="<%= host %>/src/assets/js/main.js"></script>

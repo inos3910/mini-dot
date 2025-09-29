@@ -1,0 +1,111 @@
+@use "global" as *;
+
+.u-frame {
+  @include responsive(md) {
+    max-width: calc(min(100vw, #{$bp_WSXGA}) - min(200px, #{vw-size-pc(200)}));
+    margin-inline: auto;
+  }
+}
+
+.u-frame--wide {
+  @include responsive(md) {
+    max-width: calc(100vw - min(60px, #{vw-size-pc(60)}));
+    margin-inline: auto;
+  }
+}
+
+.u-exSp {
+  display: none;
+  @include responsive(md) {
+    display: initial;
+  }
+
+  &--grid {
+    display: none;
+    @include responsive(md) {
+      display: grid;
+    }
+  }
+
+  &--flex {
+    display: none;
+    @include responsive(md) {
+      display: flex;
+    }
+  }
+
+  &--block {
+    display: none;
+    @include responsive(md) {
+      display: block;
+    }
+  }
+
+  &--inline-block {
+    display: none;
+    @include responsive(md) {
+      display: inline-block;
+    }
+  }
+}
+
+.u-sp {
+  @include responsive(md) {
+    display: none;
+  }
+}
+
+.u-preline {
+  white-space: pre-line;
+}
+
+.u-mincho {
+  font-family: var(--font-mincho);
+}
+
+.u-svg {
+  contain: layout;
+
+  svg {
+    overflow: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-box: fill-box;
+
+    path,
+    rect,
+    circle,
+    polygon {
+      transform-box: fill-box;
+      transform-origin: 50% 50%;
+      backface-visibility: hidden;
+    }
+  }
+}
+
+.u-video {
+  iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    --aspect-ratio: 16/9;
+  }
+}
+
+.u-hide {
+  display: none !important;
+}
+
+.u-visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

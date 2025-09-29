@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.l-main {
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+}

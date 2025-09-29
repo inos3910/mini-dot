@@ -1,0 +1,254 @@
+<div class="main">
+  <div id="membership" class="membership">
+    <div class="draft">
+      <section>
+        <p class="message">現在準備中です。</p>
+      </section>
+      <div class="leave-wrapper"> <button id="open-modal-button" class="leave">このメンバーシップから退会する</button> </div>
+      <div id="leave-modal" class="leave-modal-wrapper" style="display: none;">
+        <div id="close-modal-overlay" class="leave-overlay"></div>
+        <div class="leave-modal">
+          <p class="leave-modal-header">メンバーシップから退会しますか？</p>
+          <div class="leave-modal-button-wrapper"> <button id="close-modal-button" class="leave-modal-button gray">キャンセル</button>
+            <div> <a class="leave-modal-button red" href="<%= page.homeUrl %>/membership">退会する</a> </div>
+          </div>
+        </div>
+      </div>
+      <style>
+        .leave-wrapper {
+          margin-top: 40px;
+          text-align: center
+        }
+
+        .leave-wrapper .leave {
+          background-color: #fff;
+          border: 0;
+          color: var(--black);
+          cursor: pointer;
+          font-weight: 300;
+          font-size: 14px;
+          text-decoration: underline
+        }
+
+        .leave-modal-wrapper {
+          display: none
+        }
+
+        .leave-modal-wrapper .leave-overlay {
+          background: rgba(0, 0, 0, .5);
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 100
+        }
+
+        .leave-modal-wrapper .leave-modal {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: var(--white);
+          z-index: 110;
+          width: 350px;
+          height: 160px;
+          align-items: center;
+          padding: 32px 32px 24px;
+          border-radius: 8px;
+          box-sizing: border-box
+        }
+
+        .leave-modal-wrapper .leave-modal-header {
+          color: var(--black);
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: center
+        }
+
+        .leave-modal-wrapper .leave-modal-button-wrapper {
+          margin-top: 32px;
+          display: flex;
+          justify-content: space-evenly
+        }
+
+        .leave-modal-wrapper .leave-modal-button-wrapper .leave-modal-button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 12px 0;
+          border-radius: 6px;
+          width: 130px;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 21px;
+          color: var(--white);
+          text-decoration: none;
+          border: 0
+        }
+
+        .leave-modal-wrapper .leave-modal-button-wrapper .leave-modal-button.red {
+          background-color: var(--pink)
+        }
+
+        .leave-modal-wrapper .leave-modal-button-wrapper .leave-modal-button.gray {
+          background-color: var(--black-light)
+        }
+      </style>
+      <script>
+        const modal = document.getElementById("leave-modal");
+        const openButton = document.getElementById("open-modal-button");
+        const closeButton = document.getElementById("close-modal-button");
+        const overlay = document.getElementById("close-modal-overlay");
+
+        const openModal = () => {
+          if (modal) {
+            modal.style.display = "block"
+          }
+        }
+        const hideModal = () => {
+          if (modal) {
+            modal.style.display = "none"
+          }
+        }
+
+        if (openButton) {
+          openButton.addEventListener("click", openModal)
+        }
+        if (closeButton) {
+          closeButton.addEventListener("click", hideModal)
+        }
+        if (overlay) {
+          overlay.addEventListener("click", hideModal)
+        }
+      </script>
+    </div>
+  </div>
+</div>
+<style>
+  :root {
+    --pink: #fa5171;
+    --pink-light: #fcdcdc;
+    --yellow: #f5a623;
+    --yellow-light: #ffe5b9;
+    --gray-light: #f0f1f4;
+    --gray: #b4bfcb;
+    --gray-dark: #d3dae4;
+    --white: #fff;
+    --black: #252525;
+    --black-light: #6a6f76;
+    --blue-gray: #dce0e7;
+    --nobel: #969696;
+    --input-normal-color: #d3dae4;
+    --input-focus-color: #8698bc;
+    --input-error-background-color: var(--pink-light);
+    --input-error-text-color: var(--pink);
+    --input-value-color: var(--title-color);
+    --checked-color: var(--black);
+    --description: #222;
+    --box-color: #f1f3f7;
+    --title-color: #333
+  }
+
+  #membership {
+    margin: 0 auto;
+    padding: 40px 30px;
+    text-align: left;
+    width: 900px
+  }
+
+  @media (max-width:768px) {
+    #membership {
+      padding: 24px;
+      width: auto
+    }
+  }
+</style>
+<style>
+  .membership .draft .message {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 10px 0;
+    text-align: center
+  }
+
+  .membership .draft .leave-wrapper {
+    margin-top: 40px;
+    text-align: center
+  }
+
+  .membership .draft .leave-wrapper .leave {
+    background-color: var(--white);
+    border: 0;
+    color: var(--black);
+    cursor: pointer;
+    font-weight: 300;
+    font-size: 14px;
+    text-decoration: underline
+  }
+
+  .membership .draft .leave-modal-wrapper {
+    display: none
+  }
+
+  .membership .draft .leave-modal-wrapper .leave-overlay {
+    background: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100
+  }
+
+  .membership .draft .leave-modal-wrapper .leave-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white);
+    z-index: 110;
+    width: 350px;
+    height: 160px;
+    align-items: center;
+    padding: 32px 32px 24px;
+    border-radius: 8px
+  }
+
+  .membership .draft .leave-modal-wrapper .leave-modal-header {
+    color: var(--black);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center
+  }
+
+  .membership .draft .leave-modal-wrapper .leave-modal-button-wrapper {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-evenly
+  }
+
+  .membership .draft .leave-modal-wrapper .leave-modal-button-wrapper .leave-modal-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+    border-radius: 6px;
+    width: 130px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--white);
+    text-decoration: none
+  }
+
+  .membership .draft .leave-modal-wrapper .leave-modal-button-wrapper .leave-modal-button.red {
+    background-color: var(--pink)
+  }
+
+  .membership .draft .leave-modal-wrapper .leave-modal-button-wrapper .leave-modal-button.gray {
+    background-color: var(--black-light)
+  }
+</style>

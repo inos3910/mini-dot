@@ -1,0 +1,17 @@
+<%
+const page = {
+  slug: 'membership',
+  title: `メンバーシップ｜${siteName}`,
+  description: 'メンバーシップページの説明',
+};
+%>
+<!DOCTYPE html>
+<html lang="ja">
+
+<%- include(`${root}/src/partials/_head.ejs`, {page: page}) %>
+
+<body>
+  <%- include(`${root}/src/partials/_layout.ejs`, {page: page}) %>
+</body>
+
+</html>

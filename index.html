@@ -1,0 +1,17 @@
+<%
+const page = {
+  slug: 'top',
+  title: siteName,
+  description: `${siteName}の説明`,
+};
+%>
+<!DOCTYPE html>
+<html lang="ja">
+
+<%- include('./src/partials/_head.ejs', {page: page}) %>
+
+<body>
+  <%- include('./src/partials/_layout.ejs', {page: page}) %>
+</body>
+
+</html>

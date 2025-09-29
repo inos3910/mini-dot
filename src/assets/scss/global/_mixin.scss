@@ -1,0 +1,122 @@
+@use "sass:math";
+@use "sass:meta";
+@use "sass:map";
+@use "sass:color";
+@use "./variable" as *;
+
+@mixin responsive($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media screen and #{meta.inspect(map.get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // マップ型で定義されていない値が呼び出された時はエラーを返す
+  @else {
+    @error "指定されたブレークポイントは定義されていません。" + "指定できるブレークポイントは次のとおりです。 -> #{map.keys($breakpoints)}";
+  }
+}
+
+//line-height
+@mixin lh($fontSize, $lineSpacing) {
+  line-height: math.div($lineSpacing, $fontSize);
+}
+
+@mixin line-clamp($num) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  overflow: hidden;
+}
+
+//text-align justify
+@mixin text-justify {
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+@mixin text-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+//ボタンのアクセシビリティ
+@mixin selectNone {
+  //選択制御
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  //ポップアップメニュー表示制御
+  -webkit-touch-callout: none;
+
+  //タップ時の選択カラーを透明にする
+  -webkit-tap-highlight-color: color.adjust(#000, $alpha: -1);
+}
+
+//font-size
+@mixin fz($size) {
+  font-size: ($size) + px;
+  font-size: math.div($size, 10) + rem;
+}
+
+//animation
+@mixin animation($animation-name) {
+  -webkit-animation: $animation-name;
+  -moz-animation: $animation-name;
+  animation: $animation-name;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+//media-query mixin
+@mixin max-screen($break-point) {
+  @media screen and (max-width: $break-point) {
+    @content;
+  }
+}
+@mixin min-screen($break-point) {
+  @media screen and (min-width: $break-point) {
+    @content;
+  }
+}
+@mixin screen($break-point-min, $break-point-max) {
+  @media screen and (min-width: $break-point-min) and (max-width: $break-point-max) {
+    @content;
+  }
+}
+
+//placeholder
+@mixin placeholder {
+  &:placeholder-shown {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    opacity: 1;
+    @content;
+  }
+  &::-moz-placeholder {
+    opacity: 1;
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}

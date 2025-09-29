@@ -1,0 +1,257 @@
+<style>
+  .informationBanner {
+    --information-banner-backgroundColor: #555555;
+    --information-banner-textColor: #CCCCCC;
+    --information-banner-iconColor: #CCCCCC;
+  }
+</style>
+<a class="informationBanner" href="./" rel="noopener noreferrer">
+  <button class="informationBannerClose informationBannerCommonIcon" data-color-mode="light"> <i data-type="cross" class="shopIcon"></i> </button>
+  <div class="informationBannerContainer">
+    <div class="informationBannerIcon" aria-hidden="false"> <i data-type="megaphone" class="shopIcon"></i> </div>
+    <div class="informationBannerText" data-hidden-icon="false">
+      <p><strong>お客様にお知らせしたい内容を入力してください</strong></p>
+    </div>
+  </div> <button class="informationBannerArrow informationBannerCommonIcon" aria-hidden="false"> <i data-type="angle_right_infobanner" class="shopIcon"></i> </button>
+  <script>
+    (function() {
+      let isEditPreview = false;
+      try {
+        const isIntoFrame = top !== window; // throw "Blocked a frame with origin from accessing a cross-origin frame" error, when HTMLEditPreview
+        const isPreview = isIntoFrame && top.location.pathname.startsWith('/shop_admin/design/');
+        isEditPreview = isPreview && top.location.pathname !== '/shop_admin/design/preview'
+
+        if (isPreview) { // preview only
+          top.__information_banner_preview_path = top.location.pathname
+          window.addEventListener('unload', function() {
+            if (top.__information_banner_preview_path !== top.location.pathname) {
+              sessionStorage.removeItem('baseinc.information-banner-visible');
+            }
+          })
+        }
+      } catch {
+        // NOP
+      }
+
+      window.addEventListener('DOMContentLoaded', function() {
+        const banner = document.getElementsByClassName('informationBanner');
+        if (!banner || banner.length === 0) return;
+
+        if (sessionStorage.getItem('baseinc.information-banner-visible') === 'hidden') {
+          banner[0].remove();
+          return;
+        }
+
+        const closeButton = document.getElementsByClassName('informationBannerClose');
+        if (!closeButton || closeButton.length === 0) return;
+
+        if (!isEditPreview) {
+          closeButton[0].addEventListener('click', function(e) {
+            e.preventDefault();
+            sessionStorage.setItem('baseinc.information-banner-visible', 'hidden');
+            const banner = document.getElementsByClassName('informationBanner');
+            if (!banner || banner.length === 0) return;
+            banner[0].remove();
+          }, false);
+        }
+
+        banner[0].removeAttribute('aria-hidden');
+      });
+
+    })()
+  </script>
+  <style>
+    .informationBanner {
+      display: flex;
+      justify-content: space-between;
+      min-height: 24px;
+      background-color: var(--information-banner-backgroundColor);
+      padding: 8px;
+    }
+
+    .informationBanner[aria-hidden="true"] {
+      display: none;
+    }
+
+    .informationBannerClose {
+      font-size: 10px;
+      opacity: 0.5;
+      margin-right: 8px;
+      padding: 0 5px;
+    }
+
+    .informationBannerClose[data-color-mode="light"] {
+      color: #FFFFFF;
+    }
+
+    .informationBannerClose[data-color-mode="dark"] {
+      color: #434343;
+    }
+
+    .informationBannerContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: normal;
+      font-size: 14px;
+    }
+
+    .informationBannerArrow {
+      font-size: 20px;
+      visibility: hidden;
+      color: var(--information-banner-textColor);
+      margin-left: 8px;
+      padding: 0;
+    }
+
+    .informationBannerArrow[aria-hidden="false"] {
+      visibility: visible;
+    }
+
+    .informationBannerIcon {
+      color: var(--information-banner-iconColor);
+      margin-right: 8px;
+      height: 24px;
+      min-width: 27px;
+      text-align: center;
+    }
+
+    .informationBannerIcon i {
+      font-size: 24px;
+      line-height: 24px;
+    }
+
+    .informationBannerIcon[aria-hidden="true"] {
+      display: none;
+    }
+
+    .informationBannerText {
+      color: var(--information-banner-textColor);
+      text-align: center;
+      overflow-wrap: break-word;
+      word-break: break-all;
+      line-height: 130%;
+    }
+
+    .informationBannerText[data-hidden-icon="false"] {
+      text-align: left;
+    }
+
+    .informationBannerCommonIcon {
+      background-color: transparent;
+      border-style: none;
+    }
+
+    /* only-desktop */
+    @media (min-width: 768px) {
+      .informationBanner {
+        padding: 8px 16px;
+      }
+    }
+
+    @font-face {
+      font-family: 'shopicon';
+      font-style: normal;
+      font-weight: normal;
+      src: url('https://static.thebase.in/font/v1/shopicon.eot?md4x76');
+      src: url('https://static.thebase.in/font/v1/shopicon.eot?md4x76#iefix') format('embedded-opentype'),
+        url('https://static.thebase.in/font/v1/shopicon.ttf?md4x76') format('truetype'),
+        url('https://static.thebase.in/font/v1/shopicon.woff?md4x76') format('woff'),
+        url('https://static.thebase.in/font/v1/shopicon.svg?md4x76#shopicon') format('svg');
+    }
+
+    .shopIcon {
+      font-family: 'shopicon';
+      font-style: normal;
+      font-weight: normal;
+    }
+
+    .shopIcon[data-type="cross"]:before {
+      content: "\e902";
+    }
+
+    .shopIcon[data-type="angle_right_infobanner"]:before {
+      content: "\e93b";
+    }
+
+    .shopIcon[data-type="megaphone"]:before {
+      content: "\e936";
+    }
+
+    .shopIcon[data-type="shipping"]:before {
+      content: "\e91d";
+    }
+
+    .shopIcon[data-type="bell"]:before {
+      content: "\e934";
+    }
+
+    .shopIcon[data-type="calendar"]:before {
+      content: "\e909";
+    }
+
+    .shopIcon[data-type="app-giftKit"]:before {
+      content: "\e933";
+    }
+
+    .shopIcon[data-type="crown"]:before {
+      content: "\e932";
+    }
+
+    .shopIcon[data-type="cart"]:before {
+      content: "\e900";
+    }
+
+    .shopIcon[data-type="shopbag"]:before {
+      content: "\e931";
+    }
+
+    .shopIcon[data-type="new"]:before {
+      content: "\e93a";
+    }
+
+    .shopIcon[data-type="sale"]:before {
+      content: "\e939";
+    }
+
+    .shopIcon[data-type="free"]:before {
+      content: "\e937";
+    }
+
+    .shopIcon[data-type="shop"]:before {
+      content: "\e930";
+    }
+
+    .shopIcon[data-type="app-coupon"]:before {
+      content: "\e92f";
+    }
+
+    .shopIcon[data-type="app-deliveryDate"]:before {
+      content: "\e92e";
+    }
+
+    .shopIcon[data-type="payment"]:before {
+      content: "\e918";
+    }
+
+    .shopIcon[data-type="app-lottery"]:before {
+      content: "\e92d";
+    }
+
+    .shopIcon[data-type="checkbox"]:before {
+      content: "\e92a";
+    }
+
+    .shopIcon[data-type="information"]:before {
+      content: "\e919";
+    }
+
+    .shopIcon[data-type="question"]:before {
+      content: "\e91c";
+    }
+
+    .shopIcon[data-type="attentionTriangle"]:before {
+      content: "\e903";
+    }
+  </style>
+</a>

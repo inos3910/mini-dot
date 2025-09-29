@@ -1,0 +1,308 @@
+<div class="main">
+  <div id="membership" class="membership">
+    <div class="guide">
+      <div class="img-wrapper">
+        <img class="img" src="<%= page.homeUrl %>/assets/images/base/membership-image.png" alt="メンバーシップのトップ画像" width="300">
+      </div>
+      <section class="content">
+        <h2 class="heading">初めての方も、お得意様も、今これを読んでいるあなたも！誰でも参加できるメンバーシップ！これはダミーです。これはダミーです</h2>
+        <div class="description">
+          <p> オンラインストアで購入するとポイントが貯まって使える、メンバーシップです。ポイントをつかって、会員限定の商品の購入や特典に交換することができます。<br><br> メンバーシップに登録していると、お得な情報もいち早くお届けします。<br><br> この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字 </p>
+        </div>
+      </section>
+      <section class="register">
+        <div class="box">
+          <p class="content">Pay IDにログイン済みです。会員登録するには下のボタンから登録してください。</p>
+        </div>
+        <h3 class="heading">会員登録する</h3>
+        <div class="description-wrapper">
+          <p class="description">会員に登録するにはPay ID アカウントが必要です。</p>
+          <p class="description"> 会員登録にあたり <a class="description-link" href="./">利用規約</a> に同意したとみなします。 </p>
+        </div>
+        <div class="mail-magazine">
+          <div class="mail-magazine-wrapper"> <input class="checkbox" id="subscribe-mail-magazine" type="checkbox" name="subscribe-mail-magazine" value="on" checked=""> <label class="label" for="subscribe-mail-magazine">メールマガジンを受け取る</label> </div>
+          <div class="link-wrapper"> <a class="link" href="<%= page.homeUrl %>/membership/mypage/"> Pay IDで登録する </a> </div>
+        </div>
+        <p class="login">すでに会員の方は <a class="login-link" href="<%= page.homeUrl %>/membership/login/">こちら</a> </p>
+      </section>
+    </div>
+    <style>
+      .membership .guide .img-wrapper {
+        margin: 0 auto 16px;
+        text-align: center
+      }
+
+      .membership .guide .img-wrapper .img {
+        width: 100%;
+        height: 360px;
+        object-fit: cover
+      }
+
+      @media (max-width:768px) {
+        .membership .guide .img-wrapper .img {
+          object-fit: contain
+        }
+      }
+
+      .membership .guide .content .heading {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 42px
+      }
+
+      .membership .guide .content .description {
+        margin-top: 16px
+      }
+
+      .membership .guide .content .description>p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px
+      }
+
+      .membership .guide .register {
+        padding: 24px 16px;
+        margin-top: 64px;
+        background-color: var(--box-color);
+        text-align: center
+      }
+
+      @media (max-width:768px) {
+        .membership .guide .register {
+          margin-top: 16px
+        }
+      }
+
+      .membership .guide .register .box {
+        width: 375px;
+        max-width: 375px;
+        background-color: var(--white);
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 16px;
+        border-radius: 2px;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 18px;
+        color: var(--black);
+        margin: 0 auto 16px
+      }
+
+      @media (max-width:768px) {
+        .membership .guide .register .box {
+          width: calc(100% - 32px)
+        }
+      }
+
+      .membership .guide .register .box:before {
+        content: "i";
+        background: var(--black);
+        color: var(--white);
+        border-radius: 999px;
+        min-width: 16px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        font-weight: 700;
+        margin-right: 8px;
+        text-align: center
+      }
+
+      .membership .guide .register .box .content {
+        text-align: left
+      }
+
+      .membership .guide .register .heading {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 21px
+      }
+
+      .membership .guide .register .description-wrapper {
+        margin-top: 16px
+      }
+
+      .membership .guide .register .description {
+        margin-top: 8px;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 18px
+      }
+
+      @media (max-width:768px) {
+        .membership .guide .register .description {
+          text-align: left
+        }
+      }
+
+      .membership .guide .register .description-link {
+        text-decoration: underline;
+        color: var(--black)
+      }
+
+      .membership .guide .register input[type=checkbox] {
+        transition: all .2s ease-in-out
+      }
+
+      .membership .guide .register .mail-magazine .mail-magazine-wrapper {
+        margin-top: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center
+      }
+
+      .membership .guide .register .mail-magazine .mail-magazine-wrapper .checkbox {
+        cursor: pointer;
+        position: relative;
+        width: 24px;
+        height: 24px;
+        border-radius: 2px;
+        background-color: var(--white);
+        border: var(--input-border);
+        box-shadow: 0 0 0 0 var(--checked-color) inset;
+        appearance: none;
+        line-height: 1em;
+        color: var(--black)
+      }
+
+      .membership .guide .register .mail-magazine .mail-magazine-wrapper .checkbox:checked {
+        box-shadow: 0 0 0 24px var(--checked-color) inset;
+        border-color: var(--checked-color)
+      }
+
+      .membership .guide .register .mail-magazine .mail-magazine-wrapper .checkbox:after {
+        content: "";
+        display: block;
+        position: absolute;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTIgOSI+PGRlZnM+PHJlY3QgaWQ9ImMiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgeD0iMCIgeT0iMCIgcng9IjQiLz48cGF0aCBpZD0iYSIgZD0iTTUuMDU5IDExLjY0OEwxLjQzNiA4LjAyNWEuMjQ5LjI0OSAwIDAxLS4wODItLjEwOS4zNjYuMzY2IDAgMDEtLjAyOC0uMTM3YzAtLjA0NS4wMS0uMDg5LjAyOC0uMTNhLjM4OC4zODggMCAwMS4wODItLjExNmwuNzM4LS43MzhhLjI0OS4yNDkgMCAwMS4xMS0uMDgyLjM2Ni4zNjYgMCAwMS4yNzMgMCAuMjQ5LjI0OSAwIDAxLjEwOS4wODJMNS4zMDUgOS40Mmw2LjEyNS02LjEyNWEuMzg4LjM4OCAwIDAxLjExNi0uMDgyLjM1LjM1IDAgMDEuMzkuMDgybC43MzguNzM4Yy4wMjcuMDM3LjA1LjA3NS4wNjguMTE2YS4zMTYuMzE2IDAgMDEuMDI4LjEzLjM2Ni4zNjYgMCAwMS0uMDk2LjI0Nkw1LjU1IDExLjY0OGEuMzg4LjM4OCAwIDAxLS4xMTYuMDgyLjM1LjM1IDAgMDEtLjI3MyAwIC4yNTcuMjU3IDAgMDEtLjEwMy0uMDgyeiIvPjwvZGVmcz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xIC0zKSI+PG1hc2sgaWQ9ImIiIGZpbGw9IiNmZmYiPjx1c2UgeGxpbms6aHJlZj0iI2EiLz48L21hc2s+PHVzZSBmaWxsPSIjMzg0MzU5IiB4bGluazpocmVmPSIjYSIvPjxnIG1hc2s9InVybCgjYikiPjxtYXNrIGlkPSJkIiBmaWxsPSIjZmZmIj48dXNlIHhsaW5rOmhyZWY9IiNjIi8+PC9tYXNrPjx1c2UgZmlsbD0iI0ZGRiIgeGxpbms6aHJlZj0iI2MiLz48ZyBtYXNrPSJ1cmwoI2QpIj48cGF0aCBkPSJNMCAwaDE0djE0SDB6Ii8+PC9nPjwvZz48L2c+PC9zdmc+");
+        background-repeat: no-repeat;
+        top: 7px;
+        left: 6px;
+        height: 9px;
+        width: 12px;
+        z-index: 1;
+        user-select: none;
+        pointer-events: none;
+        transform: scale(.2);
+        transition: all .2s ease-in-out .15s;
+        opacity: 0
+      }
+
+      .membership .guide .register .mail-magazine .mail-magazine-wrapper .checkbox:checked:after {
+        transform: scale(1);
+        opacity: 1
+      }
+
+      .membership .guide .register .mail-magazine .mail-magazine-wrapper .label {
+        margin-left: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer
+      }
+
+      .membership .guide .register .link-wrapper {
+        margin-top: 24px;
+        text-align: center
+      }
+
+      .membership .guide .register .link {
+        width: 375px;
+        max-width: 375px;
+        padding: 18px 24px;
+        display: inline-block;
+        border-radius: 6px;
+        background: var(--black);
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px
+      }
+
+      @media (max-width:768px) {
+        .membership .guide .register .link {
+          width: 100%;
+          padding: 18px 0
+        }
+      }
+
+      .membership .guide .register .login {
+        margin-top: 24px;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 18px
+      }
+
+      .membership .guide .register .login-link {
+        color: var(--black);
+        text-decoration: underline
+      }
+
+      .membership .guide .mypage-link {
+        margin-top: 24px;
+        text-align: center
+      }
+
+      .membership .guide .mypage-link .link {
+        width: 375px;
+        max-width: 375px;
+        padding: 18px 24px;
+        display: inline-block;
+        border-radius: 6px;
+        background: var(--black);
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px
+      }
+
+      @media (max-width:768px) {
+        .membership .guide .mypage-link .link {
+          width: 100%;
+          padding: 18px 0
+        }
+      }
+    </style>
+  </div>
+</div>
+<style>
+  :root {
+    --pink: #fa5171;
+    --pink-light: #fcdcdc;
+    --yellow: #f5a623;
+    --yellow-light: #ffe5b9;
+    --gray-light: #f0f1f4;
+    --gray: #b4bfcb;
+    --gray-dark: #d3dae4;
+    --white: #fff;
+    --black: #252525;
+    --black-light: #6a6f76;
+    --blue-gray: #dce0e7;
+    --nobel: #969696;
+    --input-normal-color: #d3dae4;
+    --input-focus-color: #8698bc;
+    --input-error-background-color: var(--pink-light);
+    --input-error-text-color: var(--pink);
+    --input-value-color: var(--title-color);
+    --checked-color: var(--black);
+    --description: #222;
+    --box-color: #f1f3f7;
+    --title-color: #333
+  }
+
+  #membership {
+    margin: 0 auto;
+    padding: 40px 30px;
+    text-align: left;
+    width: 900px
+  }
+
+  @media (max-width:768px) {
+    #membership {
+      padding: 24px;
+      width: auto
+    }
+  }
+</style>

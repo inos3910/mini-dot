@@ -1,0 +1,1051 @@
+@use "sass:string";
+@use "global" as *;
+
+.p-member {
+  --black: #000;
+  --box-color: #f7f7f7;
+  padding-block: min(vw-size-sp(60), 45px);
+  @include responsive(md) {
+    padding-block: vw-size-pc(60);
+  }
+  @include responsive(xxl) {
+    padding-block: 60px;
+  }
+
+  .main {
+    @include responsive(md) {
+      max-width: vw-size-pc(900);
+      margin-inline: auto;
+    }
+    @include responsive(xxl) {
+      max-width: 900px;
+    }
+  }
+
+  #membership {
+    padding: 0;
+    margin: 0;
+    width: auto;
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+
+    > .guide {
+      @include responsive(md) {
+      }
+      @include responsive(xxl) {
+      }
+
+      .mypage-link {
+        margin-top: min(vw-size-sp(90), 60px);
+
+        @include responsive(md) {
+          margin-top: vw-size-pc(90);
+        }
+
+        @include responsive(xxl) {
+          margin-top: 90px;
+        }
+
+        .link {
+          display: grid;
+          place-items: center;
+          width: fit-content;
+          max-width: 100%;
+          min-width: vw-size-sp(420);
+          margin-inline: auto;
+          padding: 1.25em 2em;
+          font-size: clamp(10px, vw-size-sp(24), 15px);
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          line-height: 1.5;
+          color: #fff;
+          background-color: #000;
+          box-shadow: 0 0 0 1px var(--button-border-color, #000);
+          border-radius: calc(var(--radius) * 9999);
+          @include responsive(md) {
+            min-width: vw-size-pc(200);
+            font-size: vw-size-pc(15);
+
+            @media (any-hover: hover) {
+              contain: paint;
+              position: relative;
+              z-index: 1;
+              transition: $transition;
+              transition-property: color, box-shadow;
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                transition: transform $transition;
+                transform: scaleX(0);
+                transform-origin: right center;
+              }
+
+              &:hover {
+                color: #000;
+                --button-border-color: #000;
+
+                &::before {
+                  transform: scaleX(1);
+                  transform-origin: left center;
+                }
+              }
+            }
+          }
+          @include responsive(xxl) {
+            min-width: 200px;
+            font-size: 15px;
+          }
+        }
+      }
+
+      .img-wrapper {
+        margin-bottom: min(vw-size-sp(45), 45px);
+
+        @include responsive(md) {
+          margin-bottom: vw-size-pc(45);
+        }
+
+        @include responsive(xxl) {
+          margin-bottom: 45px;
+        }
+
+        img {
+          --aspect-ratio: 16/9;
+          aspect-ratio: 16/9;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+          object-fit: cover;
+          border-radius: var(--radius);
+          @include responsive(md) {
+          }
+          @include responsive(xxl) {
+          }
+        }
+      }
+
+      .content {
+        margin-top: min(vw-size-sp(45), 45px);
+        @include responsive(md) {
+          margin-top: vw-size-pc(45);
+        }
+        @include responsive(xxl) {
+          margin-top: 45px;
+        }
+
+        .heading {
+          font-size: clamp(10px, vw-size-sp(36), 24px);
+          font-weight: 700;
+          line-height: 1.5;
+          @include responsive(md) {
+            font-size: vw-size-pc(24);
+          }
+          @include responsive(xxl) {
+            font-size: 24px;
+          }
+        }
+
+        .description {
+          margin-top: min(vw-size-sp(30), 30px);
+          @include responsive(md) {
+            margin-top: vw-size-pc(30);
+          }
+          @include responsive(xxl) {
+            margin-top: 30px;
+          }
+
+          > p {
+            font-size: clamp(10px, vw-size-sp(24), 15px);
+            line-height: 2;
+            @include responsive(md) {
+              font-size: vw-size-pc(15);
+            }
+            @include responsive(xxl) {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+
+      .register {
+        margin-top: min(vw-size-sp(45), 45px);
+        padding: min(vw-size-sp(45), 45px);
+        color: var(--black, #000);
+        background-color: var(--box-color, #f7f7f7);
+        border-radius: var(--radius);
+        @include responsive(md) {
+          margin-top: vw-size-pc(45);
+          padding: vw-size-pc(45);
+        }
+        @include responsive(xxl) {
+          margin-top: 45px;
+          padding: 45px;
+        }
+
+        .box {
+          width: fit-content;
+          max-width: 100%;
+          margin-bottom: min(vw-size-sp(30), 30px);
+          padding: 1.5em;
+          font-size: clamp(10px, vw-size-sp(21), 12px);
+          font-weight: 400;
+          line-height: 1.5;
+          border-radius: 5px;
+          @include responsive(md) {
+            margin-bottom: vw-size-pc(30);
+            font-size: min(vw-size-pc(12), 10px);
+          }
+          @include responsive(xxl) {
+            margin-bottom: 30px;
+            font-size: 12px;
+          }
+
+          &::before {
+            width: 1.25em;
+            height: 1.25em;
+            min-width: 1.25em;
+            line-height: 1.25em;
+          }
+
+          .content {
+            margin-top: 0;
+            @include responsive(md) {
+            }
+            @include responsive(xxl) {
+            }
+          }
+        }
+
+        .heading {
+          font-size: clamp(10px, vw-size-sp(30), 24px);
+          font-weight: 700;
+          line-height: 1.6;
+          @include responsive(md) {
+            font-size: vw-size-pc(24);
+          }
+          @include responsive(xxl) {
+            font-size: 24px;
+          }
+        }
+
+        .description-wrapper {
+          margin-top: min(vw-size-sp(30), 30px);
+          @include responsive(md) {
+            margin-top: vw-size-pc(30);
+          }
+          @include responsive(xxl) {
+            margin-top: 30px;
+          }
+        }
+
+        .description {
+          text-align: center;
+          margin-top: 0;
+          font-size: clamp(10px, vw-size-sp(24), 15px);
+          font-weight: 400;
+          line-height: 2;
+          @include responsive(md) {
+            font-size: vw-size-pc(12);
+          }
+          @include responsive(xxl) {
+            font-size: 12px;
+          }
+        }
+
+        .description-link {
+          display: inline;
+          color: currentColor;
+        }
+
+        .mail-magazine {
+          @include responsive(md) {
+          }
+          @include responsive(xxl) {
+          }
+
+          .mail-magazine-wrapper {
+            margin-top: min(vw-size-sp(60), 45px);
+            @include responsive(md) {
+              margin-top: vw-size-pc(45);
+            }
+            @include responsive(xxl) {
+              margin-top: 45px;
+            }
+
+            .checkbox:not(:checked) {
+              box-shadow: 0 0 0 1px currentColor inset;
+            }
+
+            .label {
+              font-size: clamp(10px, vw-size-sp(28), 18px);
+              line-height: 2;
+              @include responsive(md) {
+                font-size: vw-size-pc(14);
+              }
+              @include responsive(xxl) {
+                font-size: 14px;
+              }
+
+              @media (any-hover: hover) {
+                transition: opacity $transition;
+                &:hover {
+                  opacity: 0.8;
+                }
+              }
+            }
+          }
+        }
+
+        .link-wrapper {
+          margin-top: min(vw-size-sp(60), 45px);
+          @include responsive(md) {
+            margin-top: vw-size-pc(45);
+          }
+          @include responsive(xxl) {
+            margin-top: 45px;
+          }
+        }
+
+        .link {
+          display: grid;
+          place-items: center;
+          width: fit-content;
+          max-width: 100%;
+          min-width: vw-size-sp(420);
+          margin-inline: auto;
+          padding: 1.25em 2em;
+          font-size: clamp(10px, vw-size-sp(24), 15px);
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          line-height: 1.5;
+          color: #fff;
+          background-color: #000;
+          box-shadow: 0 0 0 1px var(--button-border-color, #000);
+          border-radius: calc(var(--radius) * 9999);
+          @include responsive(md) {
+            min-width: vw-size-pc(200);
+            font-size: vw-size-pc(15);
+
+            @media (any-hover: hover) {
+              contain: paint;
+              position: relative;
+              z-index: 1;
+              transition: $transition;
+              transition-property: color, box-shadow;
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                transition: transform $transition;
+                transform: scaleX(0);
+                transform-origin: right center;
+              }
+
+              &:hover {
+                color: #000;
+                --button-border-color: #000;
+
+                &::before {
+                  transform: scaleX(1);
+                  transform-origin: left center;
+                }
+              }
+            }
+          }
+          @include responsive(xxl) {
+            min-width: 200px;
+            font-size: 15px;
+          }
+        }
+
+        .login {
+          margin-top: min(vw-size-sp(60), 45px);
+          font-size: clamp(10px, vw-size-sp(24), 15px);
+          font-weight: 400;
+          line-height: 2;
+          @include responsive(md) {
+            margin-top: vw-size-pc(45);
+            font-size: vw-size-pc(12);
+          }
+          @include responsive(xxl) {
+            margin-top: 45px;
+            font-size: 12px;
+          }
+        }
+
+        .login-link {
+          display: inline;
+          @include responsive(md) {
+          }
+          @include responsive(xxl) {
+          }
+
+          @media (any-hover: hover) {
+            transition: opacity $transition;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+
+    > .mypage {
+      @include responsive(md) {
+      }
+      @include responsive(xxl) {
+      }
+
+      .img-wrapper {
+        margin-bottom: min(vw-size-sp(45), 45px);
+
+        @include responsive(md) {
+          margin-bottom: vw-size-pc(30);
+        }
+
+        @include responsive(xxl) {
+          margin-bottom: 30px;
+        }
+
+        img {
+          --aspect-ratio: 16/9;
+          aspect-ratio: 16/9;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+          object-fit: cover;
+          border-radius: var(--radius);
+          @include responsive(md) {
+          }
+          @include responsive(xxl) {
+          }
+        }
+      }
+
+      .heading-wrapper {
+        margin-bottom: min(vw-size-sp(30), 30px);
+        @include responsive(md) {
+          margin-bottom: vw-size-pc(30);
+        }
+        @include responsive(xxl) {
+          margin-bottom: 30px;
+        }
+      }
+
+      .info {
+        margin-top: min(vw-size-sp(45), 30px);
+        @include responsive(md) {
+          align-items: center;
+          margin-top: vw-size-pc(30);
+        }
+        @include responsive(xxl) {
+          margin-top: 30px;
+        }
+      }
+
+      .card {
+        --aspect-ratio: 340/200;
+        aspect-ratio: 340/200;
+        min-width: revert;
+        min-height: revert;
+        max-width: 100%;
+        max-height: 100%;
+        padding: vw-size-sp(30);
+        width: 100%;
+        height: fit-content;
+        color: #000;
+        @include responsive(md) {
+          padding: vw-size-pc(30);
+        }
+        @include responsive(xxl) {
+          padding: 30px;
+        }
+
+        .logo-text {
+          margin-inline: 0;
+          font-size: clamp(10px, vw-size-sp(45), 24px);
+          @include responsive(md) {
+            font-size: vw-size-pc(32);
+          }
+          @include responsive(xxl) {
+            font-size: 32px;
+          }
+        }
+
+        .membership-name {
+          margin-inline: 0;
+          font-size: clamp(9px, vw-size-sp(20), 12px);
+          @include responsive(md) {
+            font-size: vw-size-pc(14);
+          }
+          @include responsive(xxl) {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .heading {
+        font-size: clamp(10px, vw-size-sp(36), 24px);
+        font-weight: 700;
+        line-height: 1.5;
+        @include responsive(md) {
+          font-size: vw-size-pc(24);
+        }
+        @include responsive(xxl) {
+          font-size: 24px;
+        }
+      }
+
+      .logout-wrapper {
+        @include responsive(md) {
+        }
+        @include responsive(xxl) {
+        }
+      }
+
+      .logout {
+        opacity: 0.9;
+        font-size: clamp(10px, vw-size-sp(24), 15px);
+        font-weight: 400;
+        color: currentColor;
+        background-color: transparent;
+        @include responsive(md) {
+          font-size: vw-size-pc(12);
+        }
+        @include responsive(xxl) {
+          font-size: 12px;
+        }
+        @media (any-hover: hover) {
+          transition: opacity $transition;
+          &:hover {
+            opacity: 0.75;
+          }
+        }
+      }
+
+      .content {
+        margin-top: min(vw-size-sp(45), 45px);
+        @include responsive(md) {
+          margin-top: 0;
+        }
+        @include responsive(xxl) {
+        }
+
+        .customer-info-wrapper {
+          @include responsive(md) {
+          }
+          @include responsive(xxl) {
+          }
+
+          .edit-wrapper {
+            @include responsive(md) {
+            }
+            @include responsive(xxl) {
+            }
+
+            .edit {
+              font-size: clamp(10px, vw-size-sp(24), 15px);
+              font-weight: 500;
+              line-height: 1;
+              color: currentColor;
+              @include responsive(md) {
+                font-size: max(vw-size-pc(15), 10px);
+              }
+              @include responsive(xxl) {
+                font-size: 15px;
+              }
+            }
+          }
+        }
+
+        .customer-info {
+          padding: 0;
+          font-size: clamp(10px, vw-size-sp(30), 18px);
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          line-height: 1.6;
+          @include responsive(md) {
+            padding-inline: vw-size-pc(15);
+            font-size: vw-size-pc(21);
+          }
+          @include responsive(xxl) {
+            padding-inline: 15px;
+            font-size: 21px;
+          }
+        }
+
+        .bar {
+          margin-top: min(#{vw-size-sp(9)}, 9px);
+          @include responsive(md) {
+            margin-top: vw-size-pc(6);
+          }
+          @include responsive(xxl) {
+            margin-top: 6px;
+          }
+        }
+
+        .definition-list {
+          margin-top: min(#{vw-size-sp(45)}, 45px);
+          @include responsive(md) {
+            margin-top: vw-size-pc(21);
+            padding-inline: vw-size-pc(15);
+          }
+          @include responsive(xxl) {
+            margin-top: 21px;
+            padding-inline: 15px;
+          }
+        }
+
+        .definition-term {
+          font-size: clamp(10px, vw-size-sp(24), 15px);
+          font-weight: 500;
+          line-height: 1;
+          @include responsive(md) {
+            font-size: max(vw-size-pc(15), 10px);
+          }
+          @include responsive(xxl) {
+            font-size: 15px;
+          }
+        }
+
+        .definition-description {
+          margin-top: min(vw-size-sp(18), 9px);
+          padding: 0;
+          gap: min(vw-size-sp(18), 9px);
+          padding: 1em;
+          font-size: min(vw-size-sp(30), 18px);
+          line-height: 1.5;
+          letter-spacing: 0;
+          color: var(--black);
+          background-color: var(--box-color);
+          @include responsive(md) {
+            margin-top: vw-size-pc(6);
+            gap: vw-size-pc(9);
+            font-size: max(vw-size-pc(15), 10px);
+          }
+          @include responsive(xxl) {
+            margin-top: 6px;
+            gap: 9px;
+            font-size: 15px;
+          }
+
+          .point-amount {
+            font-size: min(vw-size-sp(36), 18px);
+            @include responsive(md) {
+              font-size: max(vw-size-pc(18), 10px);
+            }
+            @include responsive(xxl) {
+              font-size: 18px;
+            }
+          }
+
+          .point-expiry-date {
+            font-size: min(vw-size-sp(24), 15px);
+            @include responsive(md) {
+              font-size: max(vw-size-pc(12), 10px);
+            }
+            @include responsive(xxl) {
+              font-size: 12px;
+            }
+          }
+
+          .point-history {
+            @include responsive(md) {
+            }
+            @include responsive(xxl) {
+            }
+
+            .link {
+              font-size: min(vw-size-sp(24), 15px);
+              @include responsive(md) {
+                font-size: max(vw-size-pc(12), 10px);
+              }
+              @include responsive(xxl) {
+                font-size: 12px;
+              }
+            }
+          }
+
+          .mail-address {
+            padding: 0;
+            @include responsive(md) {
+            }
+            @include responsive(xxl) {
+            }
+          }
+
+          .edit-wrapper {
+            width: 100%;
+          }
+
+          .edit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1em;
+            font-size: clamp(10px, vw-size-sp(24), 15px);
+            color: currentColor;
+            background-color: transparent;
+            border-color: currentColor;
+            border-width: 1px;
+            border-radius: 10px;
+            @include responsive(md) {
+              font-size: vw-size-pc(15);
+
+              @media (any-hover: hover) {
+                contain: paint;
+                position: relative;
+                z-index: 1;
+                transition: $transition;
+                transition-property: color, border-color;
+
+                &::before {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  z-index: -1;
+                  display: block;
+                  width: 100%;
+                  height: 100%;
+                  background-color: var(--main-text-color, #000);
+                  transition: transform $transition;
+                  transform: scaleX(0);
+                  transform-origin: right center;
+                }
+
+                &:hover {
+                  color: var(--main-bg-color, #fff);
+                  border-color: var(--main-text-color, #000);
+
+                  &::before {
+                    transform: scaleX(1);
+                    transform-origin: left center;
+                  }
+                }
+              }
+            }
+            @include responsive(xxl) {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+
+      .leave-wrapper {
+        margin-top: min(vw-size-sp(90), 60px);
+        @include responsive(md) {
+          margin-top: vw-size-pc(90);
+        }
+        @include responsive(xxl) {
+          margin-top: 90px;
+        }
+
+        .leave {
+          opacity: 0.9;
+          display: inline-block;
+          font-size: clamp(10px, vw-size-sp(21), 15px);
+          font-weight: 400;
+          color: currentColor;
+          background-color: transparent;
+          @include responsive(md) {
+            font-size: vw-size-pc(12);
+          }
+          @include responsive(xxl) {
+            font-size: 12px;
+          }
+          @media (any-hover: hover) {
+            transition: opacity $transition;
+            &:hover {
+              opacity: 0.75;
+            }
+          }
+        }
+      }
+
+      .leave-modal-wrapper {
+        @include responsive(md) {
+        }
+        @include responsive(xxl) {
+        }
+
+        .leave-modal {
+          z-index: 4010;
+          @include responsive(md) {
+          }
+          @include responsive(xxl) {
+          }
+        }
+
+        .leave-overlay {
+          z-index: 4000;
+          transform: translateZ(0);
+          @include responsive(md) {
+          }
+          @include responsive(xxl) {
+          }
+        }
+
+        .leave-modal-button-wrapper {
+          .leave-modal-button {
+            @media (any-hover: hover) {
+              transition: opacity $transition;
+              &:hover {
+                opacity: 0.8;
+              }
+            }
+          }
+        }
+      }
+
+      .about-wrapper {
+        margin-top: 1em;
+        .about {
+          color: currentColor;
+        }
+      }
+
+      .reward-list {
+        .reward-card-list {
+          .reward-card {
+            .reward-detail-wrapper {
+              .exchangeable-label {
+                padding: 3px 6px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    > .login {
+      padding: min(vw-size-sp(60), 60px) min(vw-size-sp(45), 45px);
+      color: var(--black);
+      background-color: var(--box-color);
+      border-radius: var(--radius);
+      @include responsive(md) {
+        padding: vw-size-pc(60);
+      }
+      @include responsive(xxl) {
+        padding: 60px;
+      }
+
+      .heading {
+        margin-top: 0;
+        font-size: clamp(10px, vw-size-sp(30), 18px);
+        font-weight: 700;
+        line-height: 1.6;
+        @include responsive(md) {
+          font-size: vw-size-pc(24);
+        }
+        @include responsive(xxl) {
+          font-size: 24px;
+        }
+      }
+
+      .link-wrapper {
+        margin-top: min(#{vw-size-sp(60)}, 45px);
+        @include responsive(md) {
+          margin-top: vw-size-pc(30);
+        }
+        @include responsive(xxl) {
+          margin-top: 30px;
+        }
+      }
+
+      .link {
+        display: grid;
+        place-items: center;
+        width: fit-content;
+        max-width: 100%;
+        min-width: vw-size-sp(420);
+        margin-inline: auto;
+        padding: 1.25em 2em;
+        font-size: clamp(10px, vw-size-sp(24), 15px);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        line-height: 1.5;
+        color: #fff;
+        background-color: #000;
+        box-shadow: 0 0 0 1px var(--button-border-color, #000);
+        border-radius: calc(var(--radius) * 9999);
+        @include responsive(md) {
+          min-width: vw-size-pc(200);
+          font-size: vw-size-pc(15);
+
+          @media (any-hover: hover) {
+            contain: paint;
+            position: relative;
+            z-index: 1;
+            transition: $transition;
+            transition-property: color, box-shadow;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: -1;
+              display: block;
+              width: 100%;
+              height: 100%;
+              background-color: #fff;
+              transition: transform $transition;
+              transform: scaleX(0);
+              transform-origin: right center;
+            }
+
+            &:hover {
+              color: #000;
+              --button-border-color: #000;
+
+              &::before {
+                transform: scaleX(1);
+                transform-origin: left center;
+              }
+            }
+          }
+        }
+        @include responsive(xxl) {
+          min-width: 200px;
+          font-size: 15px;
+        }
+      }
+
+      .register-description {
+        margin-top: min(#{vw-size-sp(60)}, 45px);
+        font-size: clamp(10px, vw-size-sp(24), 15px);
+        font-weight: 400;
+        line-height: 1.5;
+        @include responsive(md) {
+          margin-top: vw-size-pc(39);
+          font-size: vw-size-pc(12);
+        }
+        @include responsive(xxl) {
+          margin-top: 39px;
+          font-size: 12px;
+        }
+      }
+
+      .register-link {
+        display: inline;
+        @include responsive(md) {
+        }
+        @include responsive(xxl) {
+        }
+        @media (any-hover: hover) {
+          transition: opacity $transition;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+
+    > .draft {
+      color: var(--black);
+      background-color: var(--box-color);
+      padding: vw-size-sp(180) vw-size-sp(45);
+      @include responsive(md) {
+        padding: vw-size-pc(120) vw-size-pc(60);
+      }
+      @include responsive(xxl) {
+        padding: 120px 60px;
+      }
+
+      .message {
+        margin: 0;
+        font-size: clamp(10px, #{vw-size-sp(27)}, 15px);
+        line-height: 2;
+        @include responsive(md) {
+          font-size: vw-size-pc(15);
+        }
+        @include responsive(xxl) {
+          font-size: 15px;
+        }
+      }
+
+      .leave-wrapper {
+        margin-top: vw-size-sp(60);
+        @include responsive(md) {
+          margin-top: vw-size-pc(60);
+        }
+        @include responsive(xxl) {
+          margin-top: 60px;
+        }
+
+        .leave {
+          opacity: 0.9;
+          font-size: string.unquote("max(#{vw-size-sp(24)}, 12px)");
+          font-weight: 400;
+          color: currentColor;
+          background-color: transparent;
+          @include responsive(md) {
+            font-size: vw-size-pc(12);
+          }
+          @include responsive(xxl) {
+            font-size: 12px;
+          }
+          @media (any-hover: hover) {
+            transition: opacity $transition;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+
+      .leave-modal-wrapper {
+        @include responsive(md) {
+        }
+        @include responsive(xxl) {
+        }
+
+        .leave-modal {
+          z-index: 1010;
+          @include responsive(md) {
+          }
+          @include responsive(xxl) {
+          }
+        }
+
+        .leave-overlay {
+          z-index: 1000;
+          transform: translateZ(0);
+          @include responsive(md) {
+          }
+          @include responsive(xxl) {
+          }
+        }
+
+        .leave-modal-button-wrapper {
+          .leave-modal-button {
+            @media (any-hover: hover) {
+              transition: opacity $transition;
+              &:hover {
+                opacity: 0.8;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

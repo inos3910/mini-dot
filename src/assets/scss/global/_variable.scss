@@ -1,0 +1,135 @@
+@use "sass:math";
+@use "sass:color";
+
+$black: #000;
+$yellow: #f7da02;
+$blue: #4158d0;
+$lgray: #f1f1f1;
+$gray: #ccc;
+$dgray: #555;
+$red: #ee334e;
+
+$point-color: #040628;
+$key-color: $yellow;
+$bg-color: #fff;
+
+//shadow
+$boxshadow1: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
+$boxshadow2:
+  0 14px 28px rgba(0, 0, 0, 0.1),
+  0 10px 10px rgba(0, 0, 0, 0.08);
+$boxshadow3: 0 3px 3px 0 rgba(#000, 0.15);
+$boxshadow4:
+  0 14px 28px -14px rgba(0, 0, 0, 0.1),
+  0 10px 10px -5px rgba(0, 0, 0, 0.08);
+
+//fonts
+$mincho: '"Wittgenstein", "Noto Serif JP", "Hiragino Mincho ProN", YuMincho, serif';
+$maru: '"Nunito", "M PLUS Rounded 1c", sans-serif';
+$gothic: '"Inter", "Zen Kaku Gothic Antique", Helvetica Neue,Helvetica,Hiragino Sans, MyYuGothicM, YuGothic, -apple-system,BlinkMacSystemFont, Hiragino Kaku Gothic ProN, Meiryo, sans-serif';
+$font-family: $gothic;
+
+//breakpoint
+$breakpoints: (
+  "xs": (
+    min-width: 0
+  ),
+  "sm": (
+    min-width: 576px
+  ),
+  "md": (
+    min-width: 801px
+  ),
+  "lg": (
+    min-width: 980px
+  ),
+  "xl": (
+    min-width: 1280px
+  ),
+  "xxl": (
+    min-width: 1440px
+  ),
+  "2xl": (
+    min-width: 1640px
+  ),
+  "3xl": (
+    min-width: 1920px
+  ),
+  "sp-only": (
+    max-width: 800px
+  )
+) !default;
+
+//breakpoint
+$bp_i5: 320px;
+$bp_i6: 375px;
+$bp_i6p: 414px;
+$bp_sp_h: 568px;
+$bp_tb_v: 801px;
+$bp_tb_h: 980px;
+$bp_pc: 1080px;
+$bp_lpc: 1280px;
+$bp_xlpc: 1440px;
+$bp_WSXGA: 1640px;
+$bp_WUXGA: 1920px;
+$bp_base: 1440px;
+
+//base size
+$w: 1440;
+$w_sp: 750;
+$frame_w: 1240;
+$frame: (math.div($frame_w, $w) * 100vw);
+
+//retina
+$retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
+
+// easing
+// sine
+$ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715);
+$ease-out-sine: cubic-bezier(0.39, 0.575, 0.565, 1);
+$ease-in-out-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+// quad
+$ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+// cubic
+$ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+// quart
+$ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+$ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+
+// quint
+$ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+$ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+
+// expo
+$ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+
+// circ
+$ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+$ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+// back
+$ease-in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+$my-ease-1: cubic-bezier(0.25, 0.1, 0.25, 1);
+$my-ease-2: cubic-bezier(0.22, 0.025, 0.2, 1);
+$my-ease-3: cubic-bezier(0.1, 0.6, 0.2, 1);
+
+//others
+$ease-custom: $my-ease-2;
+
+//others
+$transition: 0.3s $ease-custom;

@@ -1,0 +1,101 @@
+<div class="main">
+  <div id="membership" class="membership">
+    <div class="login">
+      <h2 class="heading">ログイン</h2>
+      <div class="link-wrapper">
+        <a class="link" href="<%= page.homeUrl %>/membership/mypage/">Pay IDでログインする </a>
+      </div>
+      <p class="register-description">会員登録は
+        <a class="register-link" href="<%= page.homeUrl %>/membership/">こちら</a>
+      </p>
+    </div>
+    <style>
+      .membership .login .heading {
+        margin-top: 16px;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 33px;
+        text-align: center
+      }
+
+      .membership .login .link-wrapper {
+        margin-top: 24px;
+        text-align: center
+      }
+
+      .membership .login .link {
+        width: 375px;
+        padding: 18px 24px;
+        display: inline-block;
+        max-width: 375px;
+        border-radius: 6px;
+        background: var(--black);
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center
+      }
+
+      @media (max-width:768px) {
+        .membership .login .link {
+          width: 100%;
+          padding: 18px 0
+        }
+      }
+
+      .membership .login .register-description {
+        margin-top: 24px;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center
+      }
+
+      .membership .login .register-link {
+        text-decoration: underline;
+        color: var(--black)
+      }
+    </style>
+  </div>
+</div>
+<style>
+  :root {
+    --pink: #fa5171;
+    --pink-light: #fcdcdc;
+    --yellow: #f5a623;
+    --yellow-light: #ffe5b9;
+    --gray-light: #f0f1f4;
+    --gray: #b4bfcb;
+    --gray-dark: #d3dae4;
+    --white: #fff;
+    --black: #252525;
+    --black-light: #6a6f76;
+    --blue-gray: #dce0e7;
+    --nobel: #969696;
+    --input-normal-color: #d3dae4;
+    --input-focus-color: #8698bc;
+    --input-error-background-color: var(--pink-light);
+    --input-error-text-color: var(--pink);
+    --input-value-color: var(--title-color);
+    --checked-color: var(--black);
+    --description: #222;
+    --box-color: #f1f3f7;
+    --title-color: #333
+  }
+
+  #membership {
+    margin: 0 auto;
+    padding: 40px 30px;
+    text-align: left;
+    width: 900px
+  }
+
+  @media (max-width:768px) {
+    #membership {
+      padding: 24px;
+      width: auto
+    }
+  }
+</style>

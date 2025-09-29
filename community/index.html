@@ -1,0 +1,17 @@
+<%
+const page = {
+  slug: 'community',
+  title: `コミュニティ｜${siteName}`,
+  description: 'コミュニティページの説明',
+};
+%>
+<!DOCTYPE html>
+<html lang="ja">
+
+<%- include(`${root}/src/partials/_head.ejs`, {page: page}) %>
+
+<body>
+  <%- include(`${root}/src/partials/_layout.ejs`, {page: page}) %>
+</body>
+
+</html>

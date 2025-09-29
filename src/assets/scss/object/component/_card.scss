@@ -1,0 +1,234 @@
+@use "global" as *;
+
+.c-card {
+  container-type: inline-size;
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+
+  &.is-hide {
+    opacity: 0;
+    transform: translateY(9px);
+    transition: 0.8s $ease-custom;
+    transition-property: opacity, transform;
+  }
+
+  &.is-active {
+    opacity: 1;
+    transform: none;
+  }
+
+  .horizontal & {
+    scroll-snap-align: start;
+  }
+
+  &:is(a) {
+    @include responsive(md) {
+      .c-card__image img {
+        @media (any-hover: hover) {
+          transition: 0.65s $ease-custom;
+          transition-property: transform;
+          will-change: transform;
+        }
+      }
+
+      &:hover {
+        .c-card__image img {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+.c-card__visual {
+  position: relative;
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+
+  .label_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: clamp(36px, 16cqi, 60px);
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+  }
+}
+
+.c-card__image {
+  contain: paint;
+  border-radius: var(--radius);
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+
+  img {
+    --aspect-ratio: var(--thumbnail-aspect-ratio, auto);
+    aspect-ratio: var(--thumbnail-aspect-ratio, auto);
+    width: var(--thumbnail-trim-size, auto);
+    object-fit: var(--thumbnail-trim-fit, contain);
+  }
+}
+
+.c-card__content {
+  margin-top: min(4cqi, 15px);
+  padding-inline: 3px;
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+
+  .blog-list & {
+    margin-top: min(4.5cqi, 18px);
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+  }
+}
+
+.c-card__title {
+  margin-bottom: min(2cqi, 9px);
+  font-size: clamp(10px, 7cqi, 18px);
+  font-weight: 500;
+  line-height: 1.5;
+  @include responsive(md) {
+    margin-bottom: min(2cqi, 6px);
+    font-size: clamp(13px, 4cqi, 18px);
+  }
+  @include responsive(xxl) {
+  }
+
+  .blog-list & {
+    // margin-bottom: min(2.5cqi, 9px);
+    // margin-bottom: min(vw-size-sp(9), 9px);
+    @include responsive(md) {
+      // margin-bottom: min(2.5cqi, 9px);
+      // margin-bottom: vw-size-pc(9);
+    }
+    @include responsive(xxl) {
+      // margin-bottom: 9px;
+    }
+  }
+}
+
+.c-card__price {
+  font-size: clamp(12px, 7cqi, 18px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.5;
+  @include responsive(md) {
+    font-size: clamp(13px, 4.25cqi, 18px);
+  }
+  @include responsive(xxl) {
+  }
+}
+
+.c-card__sale {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  color: var(--sale-color, #{$red});
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+}
+
+.c-card__sale-tag {
+  flex-shrink: 0;
+  font-size: 0.66em;
+  letter-spacing: 0;
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+}
+
+.c-card__sale-price {
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+}
+
+.c-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: min(1.5cqi, 6px);
+  padding-inline: 3px;
+
+  &:has(.c-card__tag) {
+    margin-top: min(5cqi, 18px);
+    // margin-top: min(vw-size-sp(18), 18px);
+    @include responsive(md) {
+      margin-top: min(3.5cqi, 12px);
+      // margin-top: vw-size-pc(12);
+    }
+    @include responsive(xxl) {
+      // margin-top: 12px;
+    }
+  }
+}
+
+.c-card__tag {
+  contain: paint;
+  position: relative;
+  z-index: 1;
+  padding: 0.5em 0.75em;
+
+  font-size: clamp(8px, 5cqi, 12px);
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  border-radius: calc(var(--radius) / 2);
+  @include responsive(md) {
+    font-size: clamp(8px, 2.8cqi, 10px);
+  }
+  @include responsive(xxl) {
+  }
+
+  &::before {
+    content: "";
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: currentColor;
+  }
+}
+
+.c-card__date {
+  opacity: 0.6;
+  font-size: clamp(9px, 6cqi, 12px);
+  // font-size: clamp(9px, vw-size-sp(18), 12px);
+  letter-spacing: 0;
+  @include responsive(md) {
+    font-size: clamp(10px, 3cqi, 12px);
+    // font-size: max(vw-size-pc(12), 9px);
+  }
+  @include responsive(xxl) {
+    // font-size: 12px;
+  }
+
+  .blog-list & {
+    margin-top: min(5cqi, 9px);
+    // margin-top: min(vw-size-sp(18), 18px);
+    @include responsive(md) {
+      margin-top: min(3.5cqi, 12px);
+      // margin-top: vw-size-pc(12);
+    }
+  }
+}

@@ -1,0 +1,72 @@
+@use "sass:string";
+@use "global" as *;
+
+.l-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+}
+
+.l-header__menu-button {
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+}
+
+.l-header__inner {
+  height: var(--header-height);
+  @include responsive(md) {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: min(vw-size-pc(60), 60px);
+  }
+  @include responsive(xxl) {
+  }
+}
+
+.l-header__logo {
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+
+  a {
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+  }
+
+  .logoText {
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+  }
+
+  .logoImage {
+    max-height: min(vw-size-sp(30), 30px);
+    object-fit: contain;
+    @include responsive(md) {
+      max-height: vw-size-pc(30);
+    }
+    @include responsive(xl) {
+      max-height: 30px;
+    }
+  }
+}
+
+.l-header__nav {
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+}

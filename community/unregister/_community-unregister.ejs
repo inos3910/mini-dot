@@ -1,0 +1,137 @@
+<div class="main communityData">
+  <div class="communityMain">
+    <section>
+      <h1 class="communityTitle">テストコミュニティ</h1>
+      <div class="communityContent">
+        <div class="communityOverview" style="width: 100%; white-space: pre-wrap;">ここにコミュニティについての詳しい情報やコミュニティの背景、魅力などを掲載することができます。
+
+          このコミュニティはコミュニティAppのデモサイト確認用のテストコミュニティです。
+          ここにコミュニティについての説明を掲載できます。
+
+          改行はそのまま反映されます。</div>
+        <div class="communityNav" style="display:none;">
+          <div class="communityPrice">
+            <h3>月額料金</h3>
+            <p>￥100</p>
+          </div>
+          <div class="communityRegister">
+            <a class="communityButton communityButtonPayid communityButtonPayid__pay communityButton__purchase" href="<%= page.homeUrl %>/community/logged-in/">
+              <img class="communityButtonPayid__icon" src="<%= page.homeUrl %>/assets/images/base/payid_logo.svg" alt="PAY IDで会員になる" width="88">
+              <span class="communityButtonPayid__text">で会員になる</span>
+            </a>
+            <a class="communityButton communityButtonPayid communityButton__guest">
+              <span class="communityButtonPayid__text">ゲストとして会員になる</span>
+            </a>
+            <p class="communityTerm"><a href="https://thebase.in/pages/shop_community_term">利用規約</a>に同意の上、会員登録してください。</p>
+            <p class="communityTextNotice">※ 月額会員になるには、Pay IDのアカウントが必要です。</p>
+            <p class="payidLogoutText" style="display:none;"><a class="logout" href="<%= page.homeUrl %>/community/">Pay IDからログアウトする</a></p>
+            <div class="communitySignin communityButtonPayid__signin" style="display:none;">
+              <p>すでにコミュニティ会員の方は、こちらからログインしてください。</p>
+              <a class="communityButton communityButtonPayid communityButtonPayid__pay" id="communityButtonPayid__signinLink" href="<%= page.homeUrl %>/community/logged-in/">
+                <img class="communityButtonPayid__icon" src="<%= page.homeUrl %>/assets/images/base/payid_logo.svg" alt="PAY IDで会員になる" width="88">
+                <span class="communityButtonPayid__text">でログイン</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="limited" id="limitedItem">
+        <div class="communityItemHeader">会員限定商品</div>
+        <div id="productsLimitedItem">
+          <ul class="communityItems">
+            <li class="communityItem">
+              <a href="<%= page.homeUrl %>/items/">
+                <div class="communityImageContainer">
+                  <img class="communityImageResize" src="<%= page.homeUrl %>/assets/images/item-1.jpg" alt="会員限定商品 - 1">
+                </div>
+                <div class="communityItemMeta">
+                  <div class="communityItemTitle">会員限定商品 - 1</div>
+                  <div class="communityItemPrice discount">
+                    <div class="discount">10%OFF</div>¥ 810
+                  </div>
+                </div>
+                <div class="communityItemMetaSub">
+                  <div class="communityItemLabelBlock community">会員限定商品</div>
+                </div>
+              </a>
+              <img src="https://static.basedev.info/img/apps/itemlabel/Penant_hot_bl.png" class="communityLabelImage">
+            </li>
+            <%
+            for (let i = 2; i < 10; i++) {
+            %>
+            <li class="communityItem">
+              <a href="<%= page.homeUrl %>/items/">
+                <div class="communityImageContainer">
+                  <img class="communityImageResize" src="<%= page.homeUrl %>/assets/images/item-<%= i %>.jpg" alt="会員限定商品 - 2">
+                </div>
+                <div class="communityItemMeta">
+                  <div class="communityItemTitle">会員限定商品 - <%= i %></div>
+                  <div class="communityItemPrice">¥ <%= i %>,000</div>
+                </div>
+                <div class="communityItemMetaSub">
+                  <div class="communityItemLabelBlock community">会員限定商品</div>
+                </div>
+              </a>
+              <img src="https://static.basedev.info/img/apps/itemlabel/Penant_hot_bl.png" class="communityLabelImage">
+            </li>
+            <%
+            }
+            %>
+          </ul>
+        </div>
+      </section>
+      <section class="limited" id="limitedUrl">
+        <div class="communityUrlHeader">会員限定公開URL</div>
+        <p>会員のみがURLを閲覧できます</p>
+        <div id="productsLimitedUrl">
+          <div class="urlBox">
+            <div class="title">会員限定公開URL - 1</div>
+            <div class="url">
+              <a target="_blank" href="https://example.com/">https://example.com/</a>
+            </div>
+          </div>
+          <div class="urlBox">
+            <div class="title">会員限定公開URL - 2</div>
+            <div class="url">
+              <a target="_blank" href="https://example.com/">https://example.com/</a>
+            </div>
+          </div>
+          <div class="urlBox">
+            <div class="title">会員限定公開URL - 3</div>
+            <div class="url">
+              <a target="_blank" href="https://example.com/">https://example.com/</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <p class="communityLogout communityModalTextNotice"><a class="logout" href="<%= page.homeUrl %>/community/">Pay IDからログアウト</a></p>
+    <p class="openLeaveModal communityModalTextNotice">コミュニティから退会する</p>
+    <div class="communityBox">
+      <div class="communityOverlay communityModalLogout">
+        <div class="communityModal">
+          <p class="communityModalHeader">退会する<i class="si-cross communityModalClose"></i></p>
+          <div class="communityModalContent">
+            <p class="communityModalText">退会すると、会員限定コンテンツへアクセスできなくなります。</p>
+            <p class="communityModalTextNotice">
+              ※ 販売の期間変更や、販売停止時にはメールは送信されません。<br>
+              ※ 退会後も会員有効期限内であれば場合は会員限定コンテンツにアクセス可能です。
+            </p>
+            <div class="communityModalTable">
+              <p class="communityModalTable__Title">お名前</p>
+              <p class="communityModalTable__Body communityModalTable__Body__Name">テスト太郎</p>
+              <p class="communityModalTable__Title">メールアドレス</p>
+              <p class="communityModalTable__Body communityModalTable__Body__Email">test-taro0000@example.com</p>
+            </div>
+            <div class="communityModalButtons">
+              <a class="communityButton communityModalButton communityButtonLeave communityButton__red" href="<%= page.homeUrl %>/community/unregister/">退会する</a>
+              <a class="communityButton communityModalButton communityButton__gray" href="<%= page.homeUrl %>/community/">コミュニティページに戻る</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="<%= page.homeUrl %>/assets/styles/community.css">

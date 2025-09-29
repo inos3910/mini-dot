@@ -1,0 +1,37 @@
+<div id="baseMenu">
+  <ul class="clearfix">
+    <li class="base">
+      <a href="./">
+        <img src="<%= page.homeUrl %>/assets/images/base/base.png" alt="ネットショップを開設するならBASE" title="BASE" height="26" width="24">
+      </a>
+    </li>
+    <li class="cart">
+      <a href="./">
+        <img src="<%= page.homeUrl %>/assets/images/base/cart.png" alt="shopping cart" height="24" width="24">
+        <div class="cart-badge" style="display: none;">
+          <div class="cart-qty" style="display: none;">999
+          </div>
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              //  const cartQty = window.localStorage && localStorage.getItem("cartQty") || "0";
+              //  if (typeof cartQty === "string" && cartQty !== "0") {
+              //    const cartQtyElements = document.querySelectorAll(".cart-qty");
+              //    cartQtyElements.forEach(element => {
+              //      element.textContent = cartQty;
+              //      element.style.display = "block";
+              //    });
+              //  }
+              const cartQty = 999;
+              const cartQtyElements = document.querySelectorAll(".cart-qty");
+              cartQtyElements.forEach(element => {
+                element.textContent = cartQty;
+                element.style.display = "block";
+              });
+            });
+          </script>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- /#baseMenu -->

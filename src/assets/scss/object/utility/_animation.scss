@@ -1,0 +1,35 @@
+@use "global" as *;
+
+@include keyframes(Spin) {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@include keyframes(MvProgess) {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@include keyframes(FadeIn) {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@include keyframes(FadeScaleIn) {
+  0% {
+    opacity: 0;
+    scale: 1.05;
+    transform-origin: top center;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+    transform-origin: top center;
+  }
+}

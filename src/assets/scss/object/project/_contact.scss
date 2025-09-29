@@ -1,0 +1,384 @@
+@use "global" as *;
+
+.p-contact {
+  max-width: 600px;
+  margin: min(vw-size-sp(60), 45px) auto;
+  padding-bottom: vw-size-sp(120);
+  @include responsive(md) {
+    max-width: vw-size-pc(600);
+    margin-block: vw-size-pc(60);
+    padding-bottom: vw-size-pc(120);
+  }
+  @include responsive(xxl) {
+    max-width: 600px;
+    margin-block: 60px;
+    padding-bottom: 120px;
+  }
+
+  .inquirySection {
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+
+    h1 {
+      display: none;
+    }
+
+    > p {
+      text-align: center;
+      font-size: clamp(10px, vw-size-sp(24), 15px);
+      line-height: 2;
+      @include responsive(md) {
+        font-size: vw-size-pc(15);
+      }
+      @include responsive(xxl) {
+        font-size: 15px;
+      }
+    }
+
+    form {
+      margin-top: min(vw-size-sp(45), 30px);
+      @include responsive(md) {
+        margin-top: vw-size-pc(30);
+      }
+      @include responsive(xxl) {
+        margin-top: 30px;
+      }
+    }
+
+    dl {
+      @include responsive(md) {
+      }
+      @include responsive(xxl) {
+      }
+    }
+
+    dt {
+      display: inline-flex;
+      align-items: center;
+      font-size: clamp(10px, vw-size-sp(24), 15px);
+      font-weight: 500;
+
+      @include responsive(md) {
+        font-size: vw-size-pc(15);
+      }
+      @include responsive(xxl) {
+        font-size: 15px;
+      }
+
+      &:not(:first-child) {
+        margin-top: min(vw-size-sp(45), 36px);
+        @include responsive(md) {
+          margin-top: vw-size-pc(24);
+        }
+        @include responsive(xxl) {
+          margin-top: 24px;
+        }
+      }
+
+      span {
+        display: inline-block;
+        padding: 0.5em 0.75em;
+        margin-left: 0.5em;
+        font-size: 0.75em;
+        font-weight: 600;
+        color: var(--main-bg-color);
+        background-color: var(--main-text-color);
+        border-radius: calc(var(--radius) * 9999);
+        @include responsive(md) {
+          font-size: 0.66em;
+        }
+        @include responsive(xxl) {
+        }
+      }
+    }
+
+    dd {
+      margin-top: min(vw-size-sp(12), 9px);
+      @include responsive(md) {
+        margin-top: vw-size-pc(9);
+      }
+      @include responsive(xxl) {
+        margin-top: 9px;
+      }
+
+      + .error {
+        width: fit-content;
+        max-width: 100%;
+        min-width: 0;
+        margin-top: 0.5em;
+        padding: 0.5em;
+        font-size: clamp(10px, vw-size-sp(21), 12px);
+        font-weight: 600;
+        color: #fff;
+        background: $red;
+        border-radius: 5px;
+        @include responsive(md) {
+          font-size: vw-size-pc(12);
+        }
+        @include responsive(xxl) {
+          font-size: 12px;
+        }
+
+        &:empty {
+          display: none;
+        }
+      }
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      margin: 0;
+      padding: 0.5em 1em;
+      font-size: clamp(16px, vw-size-pc(32), 18px);
+      line-height: 1.5;
+      color: $black;
+      background: #fff;
+      border: 1px solid currentColor;
+      border-radius: var(--radius);
+      box-shadow: none;
+      transition: $transition;
+      transition-property: background, color, box-shadow;
+
+      @include responsive(md) {
+        font-size: max(vw-size-pc(15), 10px);
+      }
+      @include responsive(xxl) {
+        font-size: 15px;
+      }
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #000;
+          background: #fff;
+          box-shadow: 0 0 0 1px currentColor;
+        }
+      }
+
+      &:focus {
+        color: #000;
+        background: #fff;
+        box-shadow: 0 0 0 1px currentColor;
+      }
+    }
+
+    input[type="text"] {
+      min-height: 45px;
+      @include responsive(md) {
+        min-height: vw-size-pc(42);
+      }
+      @include responsive(xxl) {
+        min-height: 42px;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      min-height: 300px;
+      padding-block: 0.75em;
+      @include responsive(md) {
+      }
+      @include responsive(xxl) {
+      }
+    }
+
+    .control-panel {
+      position: relative;
+      width: fit-content;
+      max-width: 100%;
+      margin-top: min(vw-size-sp(60), 45px);
+      margin-inline: auto;
+      @include responsive(md) {
+        margin-top: vw-size-pc(60);
+      }
+      @include responsive(xxl) {
+        margin-top: 60px;
+      }
+
+      @media (any-hover: hover) {
+        contain: paint;
+        position: relative;
+        z-index: 1;
+        border-radius: calc(var(--radius) * 9999);
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background-color: var(--main-text-color, #000);
+          transition: transform $transition;
+          transform: scaleX(0);
+          transform-origin: right center;
+        }
+
+        input[type="submit"] {
+          transition: $transition;
+          transition-property: color, box-shadow;
+        }
+
+        &:hover {
+          input[type="submit"] {
+            color: var(--main-bg-color, #fff);
+            --submit-border-color: var(--main-text-color, #000);
+          }
+
+          &::before {
+            transform: scaleX(1);
+            transform-origin: left center;
+          }
+        }
+      }
+    }
+
+    input[type="submit"] {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      place-items: center;
+      width: fit-content;
+      max-width: 100%;
+      min-width: min(vw-size-sp(420), 210px);
+      padding: 1.25em 2em;
+      font-size: clamp(10px, vw-size-sp(24), 15px);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      line-height: 1.5;
+      box-shadow: 0 0 0 1px var(--submit-border-color, currentColor) inset;
+      border-radius: calc(var(--radius) * 9999);
+      @include responsive(md) {
+        min-width: vw-size-pc(200);
+        font-size: vw-size-pc(15);
+      }
+      @include responsive(xxl) {
+        min-width: 200px;
+        font-size: 15px;
+      }
+    }
+  }
+
+  #inquiryConfirmSection {
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+
+    form {
+      @include responsive(md) {
+      }
+      @include responsive(xxl) {
+      }
+    }
+
+    dt {
+      padding: 0;
+    }
+
+    dd {
+      margin-top: 0.75em;
+      font-size: clamp(10px, vw-size-sp(28), 18px);
+      line-height: 2;
+      @include responsive(md) {
+        font-size: vw-size-pc(15);
+      }
+      @include responsive(xxl) {
+        font-size: 15px;
+      }
+    }
+  }
+
+  #inquiryCompleteSection {
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+
+    p {
+      display: block;
+      text-align: center;
+      margin-block: vw-size-sp(45);
+      font-size: clamp(12px, vw-size-pc(27), 15px);
+      line-height: 2;
+      word-break: auto-phrase;
+      text-wrap: balance;
+      @include min-screen($bp_tb_v) {
+        margin-block: vw-size-pc(45);
+        font-size: vw-size-pc(15);
+      }
+      @include min-screen($bp_base) {
+        margin-block: 45px;
+        font-size: 15px;
+      }
+    }
+
+    a {
+      display: grid;
+      place-items: center;
+      width: fit-content;
+      max-width: 100%;
+      min-width: min(vw-size-sp(420), 210px);
+      margin-inline: auto;
+      padding: 1.25em 2em;
+      font-size: clamp(10px, vw-size-sp(24), 15px);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+      box-shadow: 0 0 0 1px var(--button-border-color, currentColor) inset;
+      border-radius: calc(var(--radius) * 9999);
+      @include responsive(md) {
+        min-width: vw-size-pc(200);
+        font-size: vw-size-pc(15);
+
+        @media (any-hover: hover) {
+          contain: paint;
+          position: relative;
+          z-index: 1;
+          transition: $transition;
+          transition-property: color, box-shadow;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: var(--main-text-color, #000);
+            transition: transform $transition;
+            transform: scaleX(0);
+            transform-origin: right center;
+          }
+
+          &:hover {
+            color: var(--main-bg-color, #fff);
+            --button-border-color: var(--main-text-color, #000);
+
+            &::before {
+              transform: scaleX(1);
+              transform-origin: left center;
+            }
+          }
+        }
+      }
+      @include responsive(xxl) {
+        min-width: 200px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.p-contact__title {
+  display: block;
+  text-align: center;
+}

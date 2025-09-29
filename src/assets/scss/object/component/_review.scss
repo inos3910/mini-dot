@@ -1,0 +1,30 @@
+@use "global" as *;
+
+.c-review {
+  @include responsive(md) {
+  }
+
+  @include responsive(xxl) {
+  }
+
+  .review01__tabWrap,
+  .x_reviewList {
+    color: #000;
+    background: #fff;
+  }
+
+  .x_reviewList {
+    padding: 15px;
+    @include responsive(md) {
+      padding: 30px;
+    }
+  }
+
+  .review01 {
+    margin-top: 0;
+  }
+
+  .review01__title {
+    padding-top: 0;
+  }
+}

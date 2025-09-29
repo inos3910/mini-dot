@@ -1,0 +1,763 @@
+<div class="main">
+  <div id="membership" class="membership">
+    <div class="mypage">
+
+      <div class="heading-wrapper">
+        <h2 class="heading">マイページ</h2>
+        <div class="logout-wrapper"> <a class="logout" href="<%= page.homeUrl %>/membership/"> ログアウトする </a> </div>
+      </div>
+
+      <div class="img-wrapper">
+        <img class="img" src="<%= page.homeUrl %>/assets/images/base/membership-image.png" alt="メンバーシップのトップ画像" width="300">
+      </div>
+
+      <div class="info">
+        <div class="card">
+          <span class="logo-text ">会員情報</span>
+          <p class="membership-name ">[メンバーシップ名]</p>
+        </div>
+        <section class="content">
+          <div class="customer-info-wrapper">
+            <h3 class="customer-info">会員情報</h3>
+            <div class="edit-wrapper">
+              <a class="edit" href="./" target="_blank" rel="noopener">
+                編集する
+              </a>
+            </div>
+          </div>
+          <hr class="bar">
+          <dl class="definition-list">
+            <dt class="definition-term">登録メールアドレス</dt>
+            <dd class="definition-description">
+              <p class="mail-address">dummy-member@example.com</p>
+            </dd>
+          </dl>
+          <dl class="definition-list">
+            <dt class="definition-term">メンバーポイント</dt>
+            <dd class="definition-description">
+                <p class="point-amount">0</p>
+                <p class="point-expiry-date">有効期限：-</p>
+                <div class="point-history">
+                    <a class="link" href="/membership/point_history">ポイント履歴</a>
+                </div>
+            </dd>
+          </dl>
+          <div class="about-wrapper">
+            <a class="about" href="https://help.thebase.in/hc/ja/articles/23389041423769" target="_blank" rel="noopener">
+              有効期限について
+            </a>
+          </div>
+        </section>
+      </div>
+      <div class="leave-wrapper"> <button id="open-modal-button" class="leave">このメンバーシップから退会する</button> </div>
+      <div id="leave-modal" class="leave-modal-wrapper" style="display: none;">
+        <div id="close-modal-overlay" class="leave-overlay"></div>
+        <div class="leave-modal">
+          <p class="leave-modal-header">メンバーシップから退会しますか？</p>
+          <div class="leave-modal-button-wrapper"> <button id="close-modal-button" class="leave-modal-button gray">キャンセル</button>
+            <div> <a class="leave-modal-button red" href="<%= page.homeUrl %>/membership/">退会する</a> </div>
+          </div>
+        </div>
+      </div>
+      <style>
+        .leave-wrapper {
+          margin-top: 40px;
+          text-align: center
+        }
+
+        .leave-wrapper .leave {
+          background-color: #fff;
+          border: 0;
+          color: var(--black);
+          cursor: pointer;
+          font-weight: 300;
+          font-size: 14px;
+          text-decoration: underline
+        }
+
+        .leave-modal-wrapper {
+          display: none
+        }
+
+        .leave-modal-wrapper .leave-overlay {
+          background: rgba(0, 0, 0, .5);
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 100
+        }
+
+        .leave-modal-wrapper .leave-modal {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: var(--white);
+          z-index: 110;
+          width: 350px;
+          height: 160px;
+          align-items: center;
+          padding: 32px 32px 24px;
+          border-radius: 8px;
+          box-sizing: border-box
+        }
+
+        .leave-modal-wrapper .leave-modal-header {
+          color: var(--black);
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: center
+        }
+
+        .leave-modal-wrapper .leave-modal-button-wrapper {
+          margin-top: 32px;
+          display: flex;
+          justify-content: space-evenly
+        }
+
+        .leave-modal-wrapper .leave-modal-button-wrapper .leave-modal-button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 12px 0;
+          border-radius: 6px;
+          width: 130px;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 21px;
+          color: var(--white);
+          text-decoration: none;
+          border: 0
+        }
+
+        .leave-modal-wrapper .leave-modal-button-wrapper .leave-modal-button.red {
+          background-color: var(--pink)
+        }
+
+        .leave-modal-wrapper .leave-modal-button-wrapper .leave-modal-button.gray {
+          background-color: var(--black-light)
+        }
+      </style>
+      <script>
+        const modal = document.getElementById("leave-modal");
+        const openButton = document.getElementById("open-modal-button");
+        const closeButton = document.getElementById("close-modal-button");
+        const overlay = document.getElementById("close-modal-overlay");
+
+        const openModal = () => {
+          if (modal) {
+            modal.style.display = "block"
+          }
+        }
+        const hideModal = () => {
+          if (modal) {
+            modal.style.display = "none"
+          }
+        }
+
+        if (openButton) {
+          openButton.addEventListener("click", openModal)
+        }
+        if (closeButton) {
+          closeButton.addEventListener("click", hideModal)
+        }
+        if (overlay) {
+          overlay.addEventListener("click", hideModal)
+        }
+      </script>
+    </div>
+    <style>
+      [data-columns="2"] .membership .mypage .info,[data-content-width=small] .membership .mypage .info {
+    display: flex;
+    flex-direction: column
+}
+
+[data-columns="2"] .membership .mypage .card,[data-content-width=small] .membership .mypage .card {
+    margin: 0 auto
+}
+
+[data-columns="2"] .membership .mypage .edit-wrapper,[data-content-width=small] .membership .mypage .edit-wrapper {
+    margin: 0 auto
+}
+
+.membership .mypage .img-wrapper {
+    margin: 0 auto 16px;
+    text-align: center
+}
+
+.membership .mypage .img-wrapper .img {
+    max-height: 240px;
+    object-fit: cover;
+    width: 100%
+}
+
+@media(max-width: 768px) {
+    .membership .mypage .img-wrapper .img {
+        height:-moz-fit-content;
+        height: fit-content;
+        max-height: 160px;
+        object-fit: contain
+    }
+}
+
+.membership .mypage .info {
+    align-items: center;
+    display: flex
+}
+
+@media(max-width: 768px) {
+    .membership .mypage .info {
+        flex-direction:column
+    }
+}
+
+.membership .mypage .heading-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px
+}
+
+.membership .mypage .heading {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 33px
+}
+
+.membership .mypage .logout {
+    background-color: #fff;
+    border: 0;
+    color: #252525;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 300;
+    -webkit-text-decoration: underline;
+    text-decoration: underline
+}
+
+.membership .mypage .card {
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #a0a7b4;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 24px;
+    max-height: 240px;
+    max-width: 378px;
+    min-height: 240px;
+    min-width: 378px
+}
+
+.membership .mypage .card .logo-image {
+    height: 80px;
+    margin-bottom: 4px;
+    object-fit: contain;
+    width: 80%
+}
+
+.membership .mypage .card .logo-text {
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+    line-break: anywhere;
+    line-height: 1.25;
+    margin: 0 24px 4px;
+    text-align: center
+}
+
+@media(max-width: 768px) {
+    .membership .mypage .card .logo-text {
+        font-size:24px
+    }
+}
+
+.membership .mypage .card .logo-text.small {
+    font-size: 20px
+}
+
+@media(max-width: 768px) {
+    .membership .mypage .card .logo-text.small {
+        font-size:16px
+    }
+}
+
+.membership .mypage .card .membership-name {
+    font-weight: bold;
+    line-break: anywhere;
+    line-height: 1.25;
+    margin: 0 24px 4px
+}
+
+.membership .mypage .card .membership-name.small {
+    font-size: 16px
+}
+
+@media(max-width: 768px) {
+    .membership .mypage .card .membership-name.small {
+        font-size:12px
+    }
+}
+
+.membership .mypage .card .join-date {
+    font-weight: bold;
+    line-height: 1.5
+}
+
+@media(max-width: 768px) {
+    .membership .mypage .card {
+        margin:0 auto;
+        max-height: 200px;
+        max-width: 340px;
+        min-height: 200px;
+        min-width: inherit;
+        width: 100%
+    }
+}
+
+.membership .mypage .content {
+    width: 100%
+}
+
+.membership .mypage .content .customer-info-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px
+}
+
+@media(max-width: 768px) {
+    .membership .mypage .content .customer-info-wrapper {
+        margin-top:40px
+    }
+}
+
+.membership .mypage .content .customer-info-wrapper .customer-info {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px
+}
+
+.membership .mypage .content .customer-info-wrapper .edit-wrapper {
+    margin: 0
+}
+
+.membership .mypage .content .customer-info-wrapper .edit-wrapper .edit {
+    color: #252525;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    -webkit-text-decoration: underline;
+    text-decoration: underline
+}
+
+.membership .mypage .content .bar {
+    background-color: #d9d9d9;
+    border: 0;
+    height: 1px
+}
+
+.membership .mypage .content .definition-list {
+    margin-top: 16px
+}
+
+.membership .mypage .content .definition-term {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px
+}
+
+.membership .mypage .content .definition-description {
+    background-color: #f1f3f7;
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 16px 8px;
+    width: 100%
+}
+
+.membership .mypage .content .definition-description .point-amount {
+    font-size: 18px;
+    font-weight: 700;
+    line-break: anywhere;
+    line-height: 27px;
+    text-align: center;
+    width: 100%
+}
+
+.membership .mypage .content .definition-description .point-expiry-date {
+    color: #252525;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .6px;
+    line-height: 18px;
+    text-align: center;
+    width: 100%
+}
+
+.membership .mypage .content .definition-description .point-history {
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+
+.membership .mypage .content .definition-description .point-history .link {
+    color: #252525;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+    -webkit-text-decoration: underline;
+    text-decoration: underline
+}
+
+.membership .mypage .content .definition-description .mail-address {
+    background-color: #f1f3f7;
+    border-radius: 4px;
+    line-break: anywhere;
+    padding: 16px 8px;
+    width: 100%
+}
+
+.membership .mypage .content .about-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px
+}
+
+.membership .mypage .content .about-wrapper .about {
+    color: #000;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14.4px;
+    -webkit-text-decoration: underline;
+    text-decoration: underline
+}
+
+.membership .mypage .leave-wrapper {
+    margin-top: 40px;
+    text-align: center
+}
+
+.membership .mypage .leave-wrapper .leave {
+    background-color: #fff;
+    border: 0;
+    color: #252525;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 300;
+    -webkit-text-decoration: underline;
+    text-decoration: underline
+}
+
+.membership .mypage .reward-list {
+    margin-top: 40px
+}
+
+@media(max-width: 768px) {
+    .membership .mypage .reward-list {
+        margin-top:24px
+    }
+}
+
+.membership .mypage .reward-list .title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px
+}
+
+.membership .mypage .reward-list .bar {
+    background-color: #d9d9d9;
+    border: 0;
+    height: 1px;
+    margin-top: 8px
+}
+
+.membership .mypage .reward-list .howto {
+    background: #f1f3f7;
+    margin-top: 16px
+}
+
+.membership .mypage .reward-list .howto .caption {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px
+}
+
+.membership .mypage .reward-list .howto .caption .text {
+    color: #252525;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    word-wrap: break-word
+}
+
+.membership .mypage .reward-list .howto .caption .arrow-icon {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle
+}
+
+.membership .mypage .reward-list .howto .description {
+    padding: 0 16px 16px
+}
+
+@media(min-width: 769px) {
+    .membership .mypage .reward-list .howto .description {
+        display:flex;
+        justify-content: space-between
+    }
+}
+
+.membership .mypage .reward-list .howto .description .text {
+    align-items: center;
+    color: #252525;
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    word-wrap: break-word
+}
+
+@media(min-width: 769px) {
+    .membership .mypage .reward-list .howto .description .text {
+        margin-right:24px
+    }
+}
+
+.membership .mypage .reward-list .howto .description .image {
+    display: inline-block;
+    width: 258px
+}
+
+@media(max-width: 768px) {
+    .membership .mypage .reward-list .howto .description .image {
+        display:block;
+        margin: 12px auto 0
+    }
+}
+
+.membership .mypage .reward-list .reward-card-list {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 16px;
+    gap: 16px;
+    margin-top: 16px
+}
+
+@media(min-width: 481px)and (max-width:768px) {
+    .membership .mypage .reward-list .reward-card-list {
+        grid-template-columns:repeat(3,1fr)
+    }
+}
+
+@media(max-width: 480px) {
+    .membership .mypage .reward-list .reward-card-list {
+        grid-template-columns:repeat(2,1fr)
+    }
+}
+
+.membership .mypage .reward-list .reward-card-list .reward-card .reward-image {
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    width: 100%
+}
+
+.membership .mypage .reward-list .reward-card-list .reward-card .reward-detail-wrapper {
+    line-break: anywhere;
+    margin-left: 4px
+}
+
+.membership .mypage .reward-list .reward-card-list .reward-card .reward-detail-wrapper .title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    margin-top: 8px
+}
+
+.membership .mypage .reward-list .reward-card-list .reward-card .reward-detail-wrapper .exchange-point-wrapper {
+    align-items: center;
+    display: inline-flex;
+    margin-top: 4px
+}
+
+.membership .mypage .reward-list .reward-card-list .reward-card .reward-detail-wrapper .exchange-point-wrapper .exchange-point-icon {
+    height: 16px;
+    width: 16px
+}
+
+.membership .mypage .reward-list .reward-card-list .reward-card .reward-detail-wrapper .exchange-point-wrapper .exchange-point {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-left: 4px
+}
+
+.membership .mypage .reward-list .reward-card-list .reward-card .reward-detail-wrapper .description {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-top: 4px
+}
+
+.membership .mypage .reward-list .reward-card-list .reward-card .reward-detail-wrapper .exchangeable-label {
+    background-color: #11beae;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 4px;
+    padding: 0 6px;
+    width: -moz-fit-content;
+    width: fit-content
+}
+
+.membership .mypage .leave-modal-wrapper {
+    display: none
+}
+
+.membership .mypage .leave-modal-wrapper .leave-overlay {
+    background: #00000080;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100
+}
+
+.membership .mypage .leave-modal-wrapper .leave-modal {
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 8px;
+    left: 50%;
+    padding: 32px 32px 24px;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 110
+}
+
+.membership .mypage .leave-modal-wrapper .leave-modal-new {
+    padding: 24px 32px 32px
+}
+
+.membership .mypage .leave-modal-wrapper .leave-modal-header {
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center
+}
+
+.membership .mypage .leave-modal-wrapper .leave-modal-header-new {
+    font-size: 20px
+}
+
+.membership .mypage .leave-modal-wrapper .leave-modal-bar {
+    background-color: #f1f3f7;
+    border: 0;
+    height: 1px;
+    margin-left: -32px;
+    margin-right: -32px;
+    margin-top: 24px
+}
+
+.membership .mypage .leave-modal-wrapper .leave-modal-subtext-wrapper {
+    background-color: #f1f3f7;
+    border-radius: 4px;
+    margin: 32px 0;
+    padding: 16px 16px 16px 32px
+}
+
+.membership .mypage .leave-modal-wrapper .leave-modal-subtext-wrapper .leave-modal-subtext-list .leave-modal-subtext {
+    color: #2e3242;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 18px
+}
+
+.membership .mypage .leave-modal-wrapper .leave-modal-subtext-wrapper .leave-modal-subtext-list .leave-modal-subtext:not(:first-child) {
+    margin-top: 4px
+}
+
+.membership .mypage .leave-modal-wrapper .leave-modal-button-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 32px
+}
+
+.membership .mypage .leave-modal-wrapper .leave-modal-button-wrapper .leave-modal-button {
+    align-items: center;
+    border: 0;
+    border-radius: 6px;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 21px;
+    padding: 12px 0;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    width: 130px
+}
+
+.membership .mypage .leave-modal-wrapper .leave-modal-button-wrapper .leave-modal-button.red {
+    background-color: var(--pink)
+}
+
+.membership .mypage .leave-modal-wrapper .leave-modal-button-wrapper .leave-modal-button.gray {
+    background-color: var(--black-light);
+    margin-right: 12px
+}
+
+    </style>
+  </div>
+</div>
+<style>
+  :root {
+    --pink: #fa5171;
+    --pink-light: #fcdcdc;
+    --yellow: #f5a623;
+    --yellow-light: #ffe5b9;
+    --gray-light: #f0f1f4;
+    --gray: #b4bfcb;
+    --gray-dark: #d3dae4;
+    --white: #fff;
+    --black: #252525;
+    --black-light: #6a6f76;
+    --blue-gray: #dce0e7;
+    --nobel: #969696;
+    --input-normal-color: #d3dae4;
+    --input-focus-color: #8698bc;
+    --input-error-background-color: var(--pink-light);
+    --input-error-text-color: var(--pink);
+    --input-value-color: var(--title-color);
+    --checked-color: var(--black);
+    --description: #222;
+    --box-color: #f1f3f7;
+    --title-color: #333
+  }
+
+  #membership {
+    margin: 0 auto;
+    padding: 40px 30px;
+    text-align: left;
+    width: 900px
+  }
+
+  @media (max-width:768px) {
+    #membership {
+      padding: 24px;
+      width: auto
+    }
+  }
+</style>

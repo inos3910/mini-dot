@@ -1,0 +1,16 @@
+<section class="p-items u-frame" id="items">
+  <hgroup class="c-caption">
+    <h2 class="main">Items</h2>
+    <p class="sub">商品一覧</p>
+  </hgroup>
+  <div class="p-items__list" id="js-items">
+    <% for (var i = 1; i <= 24; i++) { %>
+    <%- include(`${root}/src/partials/_card.ejs`, {page: page, i: i}) %>
+    <% } %>
+  </div>
+  <button class="p-items__more c-button is-ev" id="js-more-item" type="button">
+    <span class="text">VIEW MORE</span>
+    <span class="loading"></span>
+  </button>
+</section>
+<!-- /.p-items -->

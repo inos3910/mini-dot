@@ -1,0 +1,429 @@
+<div class="p-item__form" id="purchase_form">
+  <div class="p-item__select">
+    <div id="itemSelect">
+      
+      <%# 選択式オプション %>
+      <div class="itemOptionElement" data-target-version="v2">
+        <label for="x_optionSelect180179" data-target-version="v2" class="itemOption__name" style="display: block;">選択式オプション</label>
+        <select name="options[1][variation_id]" id="x_optionSelect180179" class="itemOption__select" data-target-version="v2" required="" style="display: block;">
+          <option value="732494"> 通常</option>
+          <option value="732495"> A素材　¥1,000</option>
+          <option value="732496"> B素材　¥2,000</option>
+        </select>
+      </div>
+      
+      <%# 文字入れオプション（任意） バリデーションエラーがなし
+      <label for="x_optionTextSelect2" class="itemOption__name">任意文字入れ</label>
+      <select id="x_optionTextSelect2" class="itemOption__select" data-optionid="2">
+        <option value="">なし</option>
+        <option value="true">あり</option>
+      </select>
+      <div id="x_optionInputArea2">
+        <div class="itemOption__caption">入力ガイドテキスト</div>
+        <input type="text" class="itemOption__input" name="options[1][free_text]" data-optionid="2" data-maxlength="10" id="x_optionInput2" placeholder="入力してください">
+        <div class="itemOption__bottomCaptionBlock clearfix">
+          <span id="x_optionInputError2" class="itemOption__caption--error" style="display: none;"></span>
+          <div id="x_optionCount2" class="itemOption__count">
+            <span id="x_optionInputCount2">0</span>
+            /
+            <span>10</span>
+          </div>
+        </div>
+      </div>
+       %>
+      
+      <%# 文字入れオプション（任意） バリデーションエラーが有り %>
+      <label for="x_optionTextSelect2" class="itemOption__name">文字入れ　 ¥200 </label>
+      <select id="x_optionTextSelect2" class="itemOption__select" data-optionid="2">
+        <option value="">なし</option>
+        <option value="true">あり
+        </option>
+      </select>
+      <div id="x_optionInputArea2" style="">
+        <div class="itemOption__caption" style="display: block;">プレゼントするお相手のお名前を入力してください。<br>
+          ひらがな・カタカナ・アルファベットが対応可能です。</div>
+        <input type="text" class="itemOption__input" name="options[1][free_text]" data-optionid="2" data-maxlength="10" id="x_optionInput2" placeholder="入力してください" data-has-error="true" data-dirty="true">
+        <div class="itemOption__bottomCaptionBlock clearfix">
+          <span id="x_optionInputError2" class="itemOption__caption--error" style="">文字数上限を超えました</span>
+          <div id="x_optionCount2" class="itemOption__count itemOption__count--error">
+            <span id="x_optionInputCount2">11</span>
+            /
+            <span>10</span>
+          </div>
+        </div>
+      </div>
+      
+      <%# 文字入れオプション（必須） バリデーションエラーなし
+      <label for="x_optionInput3" class="itemOption__name">必須テキスト
+      </label>
+      <div>
+        <div class="itemOption__caption">入力ガイドテキスト</div>
+        <input type="text" id="x_optionInput3" class="itemOption__input" name="options[2][free_text]" data-optionid="3" data-maxlength="15" placeholder="入力してください" data-dirty="true" data-has-error="">
+        <div class="itemOption__bottomCaptionBlock clearfix">
+          <span id="x_optionInputError3" class="itemOption__caption--error" style="display: none;"></span>
+          <div id="x_optionCount3" class="itemOption__count">
+            <span id="x_optionInputCount3">2</span>
+            /
+            <span>15</span>
+          </div>
+        </div>
+      </div>
+       %>
+      
+      <%# 文字入れオプション（必須） バリデーションエラーあり
+      <div class="itemOptionElement" data-target-version="v2">
+        <label for="x_optionInput3" class="itemOption__name">文字入れ　  ¥200  </label>
+        <div>
+          <div class="itemOption__caption">入力ガイドテキスト</div>
+          <input type="text" id="x_optionInput3" class="itemOption__input" name="options[2][free_text]" data-optionid="3" data-maxlength="15" placeholder="入力してください" data-dirty="true" data-has-error="true">
+          <div class="itemOption__bottomCaptionBlock clearfix">
+            <span id="x_optionInputError3" class="itemOption__caption--error" style="">文字を入力してください</span>
+            <div id="x_optionCount3" class="itemOption__count itemOption__count--error">
+              <span id="x_optionInputCount3">0</span>
+              /
+              <span>15</span>
+            </div>
+          </div>
+        </div>
+      </div>
+       %>
+      
+      <div id="variationSelectWrap" class="purchaseElement">
+        <label for="valiationSelect">種類</label>
+        <select name="select" id="valiationSelect" data-display-stock="1">
+          <option value="122741843" data-index="0" data-stock="33" selected="">サイズS</option>
+          <option value="122741844" data-index="1" data-stock="1">サイズM</option>
+          <option value="212797370" data-stock="0">在庫なし:サイズL</option>
+        </select>
+      </div>
+      
+      <div id="amountSelectWrap" class="purchaseElement">
+        <label for="amountSelect">数量</label>
+        <select name="amount" id="amountSelect" class="amountSelect">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <style>
+    body form[id] #variationSelectWrap,
+    body form[id] .itemOptionElement {
+      max-width: 100%
+    }
+
+    body #purchase_form #itemSelect #valiationSelect,
+    body #purchase_form #itemSelect select.itemOption__select,
+    body form[id] #itemSelect #amountSelect,
+    body form[id] #itemSelect #valiationSelect,
+    body form[id] #itemSelect select.itemOption__select,
+    body .p-item-select select {
+      height: auto;
+      white-space: normal;
+      max-width: 100%;
+      min-height: 2.1em;
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 1em;
+      line-height: normal;
+      word-break: normal;
+      background-repeat: no-repeat;
+      background-position: right .35em center;
+      background-size: auto;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cdefs%3E%3Cfilter id='a' x='0' y='0' width='10' height='6' filterUnits='userSpaceOnUse'%3E%3CfeFlood result='flood' flood-color='%23333' flood-opacity='.5'/%3E%3CfeComposite result='composite' operator='in' in2='SourceGraphic'/%3E%3CfeBlend result='blend' mode='multiply' in2='SourceGraphic'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M5 6l5-6H0z' fill='%23fafafa' fill-rule='evenodd' filter='url(%23a)'/%3E%3C/svg%3E")
+    }
+  </style>
+  <div class="p-item__submit">
+    <p class="ageVerificationWarning"><i class="si-attentionTriangle"></i>このショップでは酒類を取り扱っています。20歳未満の者の飲酒は法律で禁止されています。</p>
+    <div class="purchaseButton">
+      <style> @font-face {
+        font-family: 'shopicon';
+        font-style: normal;
+        font-weight: normal;
+        src: url('https://static.thebase.in/font/v1/shopicon.eot?md4x76');
+        src: url('https://static.thebase.in/font/v1/shopicon.eot?md4x76#iefix') format('embedded-opentype'),
+            url('https://static.thebase.in/font/v1/shopicon.ttf?md4x76') format('truetype'),
+            url('https://static.thebase.in/font/v1/shopicon.woff?md4x76') format('woff'),
+            url('https://static.thebase.in/font/v1/shopicon.svg?md4x76#shopicon') format('svg');
+    }
+
+    .si-attentionTriangle:before {
+        content: '\e903';
+        font-family: 'shopicon';
+        font-style: normal;
+        font-weight: normal;
+    }
+
+    .ageVerificationWarning {
+        margin: 24px 0;
+        font-size: 24px;
+        line-height: 1.3;
+        color: #A0A7B4;
+    } </style>
+      
+      <%#
+      <!-- 在庫なし -->
+      <a class="purchaseButton__btn purchaseButton__btn--noItem">再入荷についてお問い合わせをする</a>
+
+      <!-- 予約商品 -->
+      <button type="submit" class="purchaseButton__btn purchaseButton__btn--addToCart">予約注文する</button>
+      <!-- 在庫あり・販売中 -->
+      <button type="submit" class="purchaseButton__btn purchaseButton__btn--addToCart">カートに入れる</button>
+      <!-- 販売開始前 -->
+      <button type="button" class="purchaseButton__btn purchaseButton__btn--comingSoon x_salesPeriodModalOpen">販売開始のお知らせを希望する</button>
+      <!-- 販売開始1時間前 -->
+      <button type="button" class="purchaseButton__btn purchaseButton__btn--comingSoonStay" disabled="disabled">販売開始までお待ち下さい</button>
+      <!-- 販売終了 -->
+      <a class="purchaseButton__btn purchaseButton__btn--endOfSale">この商品についてお問い合わせする</a>
+%>
+      <button type="submit" class="purchaseButton__btn purchaseButton__btn--addToCart">カートに入れる</button>
+      
+      
+      <div class="communityBox communityData">
+        <div id="communityPurchase">
+          <p class="communityLink" style="display:none;">
+            <a href="<%= page.homeUrl %>/community/">コミュニティページで詳細を見る</a>
+          </p>
+          <div class="communitySignin buttonPayid__signin" style="">
+            <p>すでにコミュニティ会員の方は、こちらからログインしてください。</p>
+            <a class="button buttonPayid buttonPayid__pay" id="communityButtonPayid__signinLink" href="<%= page.homeUrl %>/community/"> <img class="buttonPayid__icon" src="<%= page.homeUrl %>/assets/images/base/payid_logo.svg" alt="Pay IDで会員になる" width="88"> <span class="buttonPayid__text">でログイン</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style> /*====================================================================
+      コミュニティ
+      ====================================================================*/
+
+      .communityBox * {
+          line-height: initial;
+          font-size: initial;
+      }
+
+      .communityOverlay * {
+          line-height: initial;
+      }
+
+      .communityLabel {
+          margin-bottom: 28px;
+          padding: 16px;
+          background-color: #f2bb31;
+          color: #fff;
+      }
+
+      .communityLabel p {
+          font-size: 14px !important;
+      }
+
+      .communityLabel .communityLabel__title {
+          font-weight: bold;
+      }
+
+      .communityLabel .communityLabel__note {
+          margin-top: 15px;
+      }
+
+      #communityPurchase .payid {
+          justify-content: flex-end;
+          width: 347px;
+          border: 1px solid #cccccc;
+      }
+
+      #communityPurchase .payid .payButton__icon {
+          vertical-align: bottom;
+      }
+
+      #communityPurchase .communitySignin {
+          margin-top: 16px;
+          margin-bottom: 36px;
+          padding: 16px;
+          border: 1px solid #e8e7e2;
+          border-radius: 2px;
+      }
+
+      #communityPurchase .communitySignin p {
+          margin: 0 0 16px !important;
+          font-size: 14px !important;
+      }
+
+      #communityPurchase .communitySignin a {
+          width: 100%;
+          height: auto !important;
+          text-decoration: none;
+      }
+
+      #communityPurchase .communityLink {
+          margin-top: 16px;
+          margin-bottom: 30px;
+          font-size: 14px !important;
+      }
+
+      #communityPurchase .communityLink a {
+          text-decoration: underline;
+      }
+
+      .communityBox .button {
+          display: inline-block;
+          vertical-align: top;
+          width: 244px;
+          font-size: 16px;
+          padding: 14px 12px;
+          border-radius: 6px;
+          box-sizing: border-box;
+          color: #fff;
+          cursor: pointer;
+          text-align: center;
+      }
+
+      .communityBox .buttonPayid {
+          background-color: #000435;
+      }
+
+      .communityBox .buttonPayid__icon {
+          vertical-align: bottom;
+      }
+
+      .communityBox .button__guest {
+          background-color: #252525;
+          color: #ffffff;
+      }
+
+      .communityOverlay {
+          background: rgba(0,0,0,0.5);
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 20000;
+      }
+
+      .communityModal {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #fff;
+          z-index: 20001;
+          padding: 25px 24px 45px;
+          border-radius: 8px;
+          width: 560px;
+          box-sizing: border-box;
+      }
+
+      .communityModal .buttonPayid__text {
+          color: #fff;
+      }
+
+      .communityModalHeader {
+          margin: 0 !important;
+          padding-bottom: 24px !important;
+          font-size: 20px !important;
+          font-weight: bold;
+          text-align: center;
+          border-bottom: 1px solid #f0f1f4;
+      }
+
+      .communityModalHeader .communityModalClose {
+          position: absolute;
+          top: 32px;
+          right: 26px;
+          cursor: pointer;
+      }
+
+      .communityTitle {
+          margin-top: 21px !important;
+          font-size: 21px !important;
+          font-weight: bold !important;
+          text-align: center !important;
+      }
+
+      .communityPrice {
+          display: flex;
+          margin-top: 22px !important;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .communityPrice h3,
+      .communityPrice p {
+          font-size: 21px !important;
+          margin: 0 !important;
+      }
+
+      .communityOverview {
+          margin-top: 26px !important;
+          min-height: 100px;
+          max-height: 220px;
+          overflow: hidden;
+      }
+
+      .communityLinkMore {
+          margin-top: 14px !important;
+          font-size: 14px !important;
+          text-align: center;
+      }
+
+      .communityLinkMore a {
+          text-decoration: underline;
+      }
+
+      .communityRegister {
+          margin-top: 22px;
+      }
+
+      .communityTerms,
+      .communityTerms a {
+          margin-top: 23px !important;
+          font-size: 14px !important;
+      }
+
+      .communityTerms a {
+          text-decoration: underline;
+      }
+
+      .communityBox .button__purchase {
+          margin-left: 18px;
+      }
+
+      .communityTextNotice {
+          margin-top: 12px !important;
+          font-size: 12px !important;
+      }
+
+      .communityItemHeader,
+      .communityUrlHeader {
+          color: #252525;
+      }
+
+      @media screen and (max-width: 480px) {
+          .communityBox .button__purchase {
+              margin-left: 0;
+          }
+          .communityModal {
+              min-width: 300px;
+          }
+          .communityRegisterButtons {
+              display: flex;
+              flex-direction: column-reverse;
+              align-items: center;
+          }
+          .communityBox .button__guest {
+              margin-top: 8px;
+          }
+          .communityModal {
+              width: initial;
+          }
+      } </style>
+  </div>
+</div>
+<!-- /.p-item__form -->

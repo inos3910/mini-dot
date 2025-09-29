@@ -1,0 +1,16 @@
+<section class="p-category is-ev">
+  <div class="p-category__inner u-frame">
+    <hgroup class="p-category__caption c-caption">
+      <h2 class="main">Categories</h2>
+      <p class="sub">商品カテゴリ</p>
+    </hgroup>
+    <div class="p-category__list">
+      <% for (let i = 1; i <= 3; i++){ %>
+      <a href="<%= page.homeUrl %>/category/">Rackets</a>
+      <a href="<%= page.homeUrl %>/category/">Clothing</a>
+      <a href="<%= page.homeUrl %>/category/">Bag</a>
+      <a href="<%= page.homeUrl %>/category/">Footwear</a>
+      <% } %>
+    </div>
+  </div>
+</section>

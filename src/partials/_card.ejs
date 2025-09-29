@@ -1,0 +1,32 @@
+<a class="c-card js-itemLink js-item<% if(page.slug !== 'load-items'){%> is-ev<% } %>" href="<%= host %>/items/">
+  <div class="c-card__visual">
+    <img src="https://static.thebase.in/img/apps/itemlabel/Square_new_bk.png" class="label_image list">
+    <div class="c-card__image">
+      <img class="js-card-image" src="<%= host %>/src/assets/images/item-<%= i%>.jpg" alt="">
+    </div>
+  </div>
+  <!-- /.c-card__visual -->
+  <div class="c-card__content">
+    <div class="c-card__title">SAMPLE 00<%= i%></div>
+    <% if(i % 3 === 0) {%>
+    <div class="c-card__price c-card__sale">
+      <div class="c-card__sale-price">¥10,200</div>
+      <div class="c-card__sale-tag">15%OFF</div>
+    </div>
+    <!-- /.c-card__price.c-card__sale -->
+    <% } else { %>
+    <div class="c-card__price">¥30,000</div>
+    <% } %>
+  </div>
+  <!-- /.c-card__content -->
+
+  <div class="c-card__tags">
+    <div class="c-card__tag takeout">テイクアウト</div>
+    <div class="c-card__tag community">会員限定商品</div>
+    <div class="c-card__tag preOrder">予約商品</div>
+    <div class="c-card__tag endOfSale">SOLD OUT</div>
+    <div class="c-card__tag waitingForSale">COMING SOON</div>
+  </div>
+  <!-- /.c-card__tags -->
+</a>
+<!-- /.c-card -->

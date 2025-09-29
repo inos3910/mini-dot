@@ -1,0 +1,129 @@
+@use "global" as *;
+
+.p-content {
+  margin-block: min(vw-size-sp(60), 45px);
+  padding-bottom: min(vw-size-sp(60), 45px);
+  font-size: clamp(10px, vw-size-sp(24), 14px);
+  line-height: 2;
+  @include responsive(md) {
+    max-width: vw-size-pc(960);
+    margin: vw-size-pc(60) auto 0;
+    padding-bottom: vw-size-pc(60);
+    font-size: vw-size-pc(14);
+  }
+  @include responsive(xxl) {
+    max-width: 960px;
+    margin-top: 60px;
+    padding-bottom: 60px;
+    font-size: 14px;
+  }
+
+  &__inner {
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+  }
+
+  h2 {
+    margin-bottom: vw-size-sp(45);
+    text-align: center;
+    font-size: clamp(10px, vw-size-sp(39), 24px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.4;
+    @include responsive(md) {
+      margin-bottom: vw-size-pc(45);
+      font-size: vw-size-pc(36);
+    }
+    @include responsive(xxl) {
+      margin-bottom: 45px;
+      font-size: 36px;
+    }
+  }
+
+  h3,
+  dt {
+    margin-top: 2em;
+    font-size: min(1.25em, 18px);
+    font-weight: 600;
+    line-height: 1.5;
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+  }
+
+  dl,
+  dd,
+  ul,
+  p {
+    margin-top: vw-size-sp(18);
+    @include responsive(md) {
+      margin-top: vw-size-pc(18);
+    }
+    @include responsive(xxl) {
+      margin-top: 18px;
+    }
+  }
+
+  ul {
+    padding-left: 3.5em;
+    text-indent: -3.5em;
+  }
+
+  a {
+    display: inline;
+    color: currentColor;
+    border-bottom: 1px solid;
+    transition-property: border-bottom-color;
+
+    @media (any-hover: hover) {
+      &:hover {
+        border-bottom-color: transparent;
+      }
+    }
+  }
+
+  #privacy,
+  #law {
+    @include responsive(md) {
+    }
+
+    @include responsive(xxl) {
+    }
+  }
+
+  #privacy {
+    .privacy_intro {
+      margin-top: 0;
+      @include responsive(md) {
+      }
+
+      @include responsive(xxl) {
+      }
+    }
+  }
+
+  #law {
+    .law__telnum,
+    .law__telNumber {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+
+      img {
+        padding: 3px 9px;
+        background: #fff;
+      }
+
+      .telnumValid__icon {
+        background: none;
+      }
+      .telnumValid__txt {
+        line-height: 2;
+        color: #000;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<%
+const page = {
+  slug: 'law',
+  title: `特定商取引法に基づく表記｜${siteName}`,
+  description: '特定商取引法に基づく表記ページの説明',
+};
+%>
+<!DOCTYPE html>
+<html lang="ja">
+
+<%- include(`${root}/src/partials/_head.ejs`, {page: page}) %>
+
+<body>
+  <%- include(`${root}/src/partials/_layout.ejs`, {page: page}) %>
+</body>
+
+</html>

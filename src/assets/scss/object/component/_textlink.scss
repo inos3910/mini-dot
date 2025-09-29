@@ -1,0 +1,40 @@
+@use "global" as *;
+
+.c-textlink {
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    @include responsive(md) {
+      @media (any-hover: hover) {
+        transition: $transition;
+        transition-property: opacity;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &[target="_blank"] {
+      display: inline-grid;
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: auto 1em;
+      column-gap: 0.6em;
+      margin-right: 0.6em;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 1em;
+        height: 1em;
+        background-color: currentColor;
+        mask: inline("icon-outlink.png") no-repeat center center / contain;
+      }
+    }
+  }
+}

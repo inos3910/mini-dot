@@ -1,0 +1,90 @@
+@use "global" as *;
+
+.c-sns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: min(vw-size-sp(30), 24px);
+  @include responsive(md) {
+    // gap: vw-size-pc(18);
+    gap: 18px;
+  }
+  @include responsive(xxl) {
+    // gap: 18px;
+  }
+
+  a {
+    display: grid;
+    place-items: center;
+    @media (any-hover: hover) {
+      contain: layout;
+      z-index: 1;
+
+      &::before {
+        opacity: 0;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        transform: translate3d(-50%, -50%, 0);
+        display: block;
+        width: calc(100% + 1em);
+        height: calc(100% + 1em);
+        background-color: currentColor;
+        border-radius: 50%;
+        transition: opacity $transition;
+      }
+
+      &:hover {
+        &::before {
+          opacity: 0.1;
+        }
+      }
+    }
+  }
+
+  img {
+    width: min(vw-size-sp(54), 24px);
+    @include responsive(md) {
+      width: max(vw-size-pc(24), 18px);
+    }
+    @include responsive(xxl) {
+      width: 24px;
+    }
+  }
+
+  #baseMenu {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: min(vw-size-sp(30), 24px);
+      @include responsive(md) {
+        gap: 18px;
+      }
+      @include responsive(xxl) {
+      }
+    }
+
+    li {
+      @include responsive(md) {
+      }
+      @include responsive(xxl) {
+      }
+    }
+
+    img {
+    }
+
+    .base {
+      .hide-baselogo & {
+        display: none;
+      }
+    }
+
+    .cart {
+      display: none;
+    }
+  }
+}

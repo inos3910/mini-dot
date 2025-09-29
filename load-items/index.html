@@ -1,0 +1,21 @@
+<%
+const page = {
+  slug: 'load-items',
+  host: host
+};
+%>
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow">
+</head>
+
+<body>
+  <% for (var i = 1; i <= 24; i++) { %>
+  <%- include(`${root}/src/partials/_card.ejs`, {page: page, i: i}) %>
+  <% } %>
+</body>
+
+</html>

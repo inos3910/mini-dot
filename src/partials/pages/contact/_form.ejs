@@ -1,0 +1,42 @@
+<section class="inquirySection">
+  <h1>contact</h1>
+  <p>お問い合わせ内容をご入力ください。</p>
+  <form action="<%= page.homeUrl %>/contact/confirm/" id="ShopInquiryInquiryPreviewForm" method="get" accept-charset="utf-8">
+    <dl>
+      <dt>お名前<span>(必須)</span></dt>
+      <dd>
+        <input name="data[ShopInquiry][name]" type="text" id="ShopInquiryName" required="required">
+      </dd>
+      <dd class="error ma-b20"></dd>
+
+      <dt>電話番号</dt>
+      <dd>
+        <input name="data[ShopInquiry][tel]" type="text" id="ShopInquiryTel">
+      </dd>
+      <dd class="error ma-b20"></dd>
+
+      <dt>メールアドレス<span>(必須)</span></dt>
+      <dd>
+        <input name="data[ShopInquiry][mail_address]" type="text" id="ShopInquiryMailAddress" required="required">
+      </dd>
+      <dd class="error ma-b20"></dd>
+
+      <dt>件名<span>(必須)</span></dt>
+      <dd>
+        <input name="data[ShopInquiry][title]" type="text" id="ShopInquiryTitle" required="required">
+      </dd>
+      <dd class="error ma-b20">必須項目です</dd>
+
+      <dt>お問い合わせ内容<span>(必須)</span></dt>
+      <dd>
+        <textarea name="data[ShopInquiry][inquiry]" style="margin-bottom: 0px;" id="ShopInquiryInquiry" required="required"></textarea>
+      </dd>
+      <dd class="error ma-b20"></dd>
+
+    </dl>
+    <div class="clear"></div>
+    <div class="control-panel">
+      <input id="buttonLeave" class="detail onMouseOver" type="submit" value="確認する">
+    </div>
+  </form>
+</section>

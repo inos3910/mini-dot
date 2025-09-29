@@ -1,0 +1,29 @@
+@use "global" as *;
+
+.c-menu-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  width: min(vw-size-sp(90), 90px * 0.75);
+  height: min(vw-size-sp(90), 90px * 0.75);
+  @include responsive(md) {
+    width: min(vw-size-pc(90), 90px);
+    height: min(vw-size-pc(90), 90px);
+  }
+  @include responsive(xxl) {
+  }
+  .icon {
+    display: block;
+    width: min(vw-size-sp(24), 24px * 0.75);
+    height: min(vw-size-sp(24), 24px * 0.75);
+    @include responsive(md) {
+      width: min(vw-size-pc(24), 24px);
+      height: min(vw-size-pc(24), 24px);
+    }
+    @include responsive(xxl) {
+    }
+  }
+}

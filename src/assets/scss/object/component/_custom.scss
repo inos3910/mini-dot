@@ -1,0 +1,109 @@
+@use "global" as *;
+
+.c-custom {
+  font-size: clamp(12px, vw-size-sp(24), 18px);
+  line-height: 2;
+  @include responsive(md) {
+    font-size: vw-size-pc(15);
+  }
+
+  @include responsive(xxl) {
+    font-size: 15px;
+  }
+
+  &:empty {
+    display: none;
+  }
+
+  &:not(:has(#appsItemDetailCustom)) {
+    display: none;
+  }
+
+  #appsItemDetailCustom {
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+
+    #appsItemDetailCustomTag {
+      > *:first-child {
+        margin-top: 0;
+      }
+
+      .appsItemDetailCustomTag_heading {
+        position: relative;
+        max-width: 100%;
+        font-size: 1.5em;
+        font-weight: 700;
+        line-height: 1.5;
+
+        @include responsive(md) {
+        }
+        @include responsive(xxl) {
+        }
+      }
+
+      .appsItemDetailCustomTag_description {
+        margin-block: vw-size-sp(21);
+
+        @include responsive(md) {
+          margin-block: vw-size-pc(21);
+        }
+
+        @include responsive(xxl) {
+          margin-block: 21px;
+        }
+      }
+
+      .appsItemDetailCustomTag_image,
+      .appsItemDetailCustomTag_slider {
+        display: block;
+        width: 100%;
+        margin-block: vw-size-sp(45);
+        @include responsive(md) {
+          margin-block: vw-size-pc(30);
+        }
+        @include responsive(xxl) {
+          margin-block: 30px;
+        }
+      }
+
+      .appsItemDetailCustomTag_youtube,
+      .appsItemDetailCustomTag_vimeo {
+        --aspect-ratio: 16/9;
+        width: 100%;
+        aspect-ratio: 16/9;
+        margin-block: vw-size-sp(45);
+        @include responsive(md) {
+          margin-block: vw-size-pc(30);
+        }
+        @include responsive(xxl) {
+          margin-block: 30px;
+        }
+
+        iframe {
+          width: 100%;
+        }
+      }
+
+      .appsItemDetailCustomTag_youtube {
+        &.short {
+          width: auto;
+        }
+
+        iframe {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .baseCarouselCaption {
+        font-size: 0.75em;
+        @include responsive(md) {
+        }
+        @include responsive(xxl) {
+        }
+      }
+    }
+  }
+}

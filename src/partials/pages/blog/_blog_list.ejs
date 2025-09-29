@@ -1,0 +1,47 @@
+<link rel="stylesheet" type="text/css" href="<%= page.homeUrl %>/assets/css/blog-list.css?<%= currentTime %>">
+<div class="main">
+  <div id="about" itemscope="" itemtype="http://schema.org/Article" class="blogListMain">
+    <%# <p>まだ記事がありません</p> %>
+    <%
+    for (let i=1; i <= 15; i++) {
+      %>
+    <div class="blog_inner">
+      <div class="blog_title">
+        <h2 itemprop="name">
+          <a href="<%= page.homeUrl %>/blog/article/">【BLOG <%= i%>】サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル</a>
+        </h2>
+      </div>
+      <div class="blog_publish">
+        <p class="publish_date" itemprop="dateModified" content="2023/02/01 10:00">2023/02/01 10:00</p>
+      </div>
+      <div class="blog_head_image hide">
+        <a href="<%= page.homeUrl %>/blog/article/">
+          <img src="<%= page.homeUrl %>/assets/images/item-<%= i%>.jpg" alt="サンプルサンプルサンプルサンプルサンプルサンプル">
+        </a>
+      </div>
+      <div class="blog_contents">
+        <div class="blog_body" itemprop="description">
+          <p class="text">【BLOG <%= i%>】サンプルサンプルサンプルサンプルサンプルサンプル</p>
+        </div>
+        <div class="read_more">
+          <a href="<%= page.homeUrl %>/blog/article/">続きを読む</a>
+        </div>
+      </div>
+    </div>
+    <%
+    }
+    %>
+    <div class="paginate-wrp clearfix">
+      <ul class="paginate">
+        <li class="current"><a>1</a>
+        </li>
+        <li>
+          <a href="./">2</a>
+        </li>
+        <li class="next">
+          <a href="./" rel="next">次 &gt;&gt;</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
