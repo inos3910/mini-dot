@@ -5,7 +5,7 @@
   navigation: auto;
 }
 
-:root {
+:where(:root) {
   --font-gothic: #{$gothic};
   --font-mincho: #{$mincho};
   --font-maru: #{$maru};

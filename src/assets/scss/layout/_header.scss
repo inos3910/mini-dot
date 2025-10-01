@@ -21,7 +21,7 @@
 }
 
 .l-header__inner {
-  height: var(--header-height);
+  min-height: var(--header-height);
   @include responsive(md) {
     display: grid;
     align-items: center;

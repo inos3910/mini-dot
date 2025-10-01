@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .p-community {
-  margin-block: min(vw-size-sp(60), 45px);
+  margin-block: min(vw-size-sp(60), 60px * 0.75);
   @include responsive(md) {
     margin-block: vw-size-pc(60);
   }
@@ -366,8 +366,7 @@
       @include responsive(md) {
         grid-template-columns: repeat(var(--items-col-pc, 3), minmax(0, 1fr));
         // gap: vw-size-pc(75) vw-size-pc(45);
-        gap: vw-size-pc(75)
-          max(calc(#{vw-size-pc(60)} - #{vw-size-pc(15)} * (var(--items-col-pc, 3) - 2)), vw-size-pc(15));
+        gap: vw-size-pc(75) max(calc(#{vw-size-pc(60)} - #{vw-size-pc(15)} * (var(--items-col-pc, 3) - 2)), vw-size-pc(15));
       }
       @include responsive(xxl) {
         // gap: 75px 45px;

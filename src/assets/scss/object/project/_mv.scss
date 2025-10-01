@@ -1,0 +1,45 @@
+@use "global" as *;
+
+.p-mv {
+  @include responsive(md) {
+    margin-block: vw-size-pc(30);
+  }
+  @include responsive(xxl) {
+    margin-block: 30px;
+  }
+
+  .splide__track {
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+  }
+
+  .splide__list {
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+  }
+
+  .splide__slide {
+    display: block;
+    @include responsive(md) {
+    }
+    @include responsive(xxl) {
+    }
+
+    img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: min(vw-size-sp(30), 30px * 0.75);
+      @include responsive(md) {
+        border-radius: vw-size-pc(30);
+      }
+      @include responsive(xxl) {
+        border-radius: 30px;
+      }
+    }
+  }
+}

@@ -36,7 +36,7 @@
         height: 1em;
         margin-block: auto;
         background-color: currentColor;
-        mask: inline("icon-arrow-accordion.svg") no-repeat center center / contain;
+        mask: url("@assets/svg/icon-arrow-accordion.svg") no-repeat center center / contain;
       }
 
       &::before {

@@ -1,5 +1,17 @@
 <footer class="l-footer">
   <div class="l-footer__inner u-frame">
-    <p>© <%= siteName %></p>
   </div>
+  <div class="l-footer__bottom">
+    <div class="l-footer__sns c-sns">
+      <%- include(`${root}/src/partials/_sns.ejs`, {page: page}) %>
+      <%- include(`${root}/src/partials/base/_BASEMenuTag.ejs`, {page: page}) %>
+    </div>
+    <!-- /.l-footer__sns -->
+    <div class="l-footer__translation c-translation">
+      <%- include(`${root}/src/partials/base/_translation.ejs`, {page: page}) %>
+    </div>
+    <!-- /.l-footer__translation -->
+    <a class="l-footer__copyright" href="<%= host %>/">©︎ <%= siteName %></a>
+  </div>
+  <!-- /.l-footer__bottom -->
 </footer>

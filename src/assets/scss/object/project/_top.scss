@@ -1,0 +1,14 @@
+@use "global" as *;
+
+.p-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  row-gap: min(vw-size-sp(60), 60px * 0.75);
+  @include responsive(md) {
+    row-gap: vw-size-pc(60);
+  }
+  @include responsive(xxl) {
+    row-gap: 60px;
+  }
+}

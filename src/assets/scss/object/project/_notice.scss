@@ -1,16 +1,16 @@
 @use "global" as *;
 
 .p-notice {
-  margin-top: min(vw-size-sp(45), 45px);
-  font-size: clamp(10px, vw-size-sp(24), 14px);
+  margin-block: min(vw-size-sp(45), 45px * 0.75);
+  font-size: min(vw-size-sp(24), 24px * 0.75);
   line-height: 1.5;
   font-weight: 600;
   @include responsive(md) {
-    margin-top: vw-size-pc(45);
+    margin-block: vw-size-pc(30);
     font-size: vw-size-pc(14);
   }
   @include responsive(xxl) {
-    margin-top: 45px;
+    margin-block: 30px;
     font-size: 14px;
   }
 

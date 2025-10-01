@@ -1,0 +1,49 @@
+@use "global" as *;
+
+.p-lnav {
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+}
+
+.p-lnav__inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  @include responsive(md) {
+  }
+  @include responsive(xxl) {
+  }
+}
+
+.p-lnav__item {
+  padding-inline: 1em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  @include responsive(md) {
+    font-size: vw-size-pc(18);
+  }
+  @include responsive(xxl) {
+    font-size: 18px;
+  }
+
+  &:not(:first-child) {
+    border-left: 1px solid;
+  }
+
+  a {
+    display: grid;
+    place-items: center;
+    padding: 1.25em 1em;
+    border-radius: 9999px;
+  }
+
+  &.is-active {
+    a {
+      width: 100%;
+      height: 100%;
+      color: #000;
+      background-color: $lgray;
+    }
+  }
+}

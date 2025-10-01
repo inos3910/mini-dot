@@ -1,5 +1,17 @@
-<%- include(`_blog_fixed.ejs`, {page: page}) %>
 <div class="p-top">
+  <%- include(`_mv.ejs`, {page: page}) %>
+  <%- include(`_blog_fixed.ejs`, {page: page}) %>
+
+  <div class="p-lnav">
+    <ul class="p-lnav__inner u-frame">
+      <li class="p-lnav__item is-active"><a href="<%= host %>/category/">MEN</a></li>
+      <li class="p-lnav__item"><a href="<%= host %>/category/">WOMEN</a></li>
+      <li class="p-lnav__item"><a href="<%= host %>/category/">KIDS</a></li>
+    </ul>
+    <!-- /.p-lnav__inner -->
+  </div>
+  <!-- /.p-lnav -->
+
   <%- include(`_items.ejs`, {page: page}) %>
   <%- include(`${root}/src/partials/_categories.ejs`, {page: page}) %>
 </div>

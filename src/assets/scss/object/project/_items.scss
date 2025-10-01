@@ -1,6 +1,7 @@
 @use "global" as *;
 
 .p-items {
+  width: 100%;
   @include responsive(md) {
   }
   @include responsive(xxl) {
