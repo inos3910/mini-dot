@@ -1,45 +1,88 @@
+@use "sass:color";
 @use "global" as *;
 
 .p-mv {
   @include responsive(md) {
-    margin-block: vw-size-pc(30);
-  }
-  @include responsive(xxl) {
-    margin-block: 30px;
+    margin-block: pc-size(30) pc-size(90);
   }
 
   .splide__track {
     @include responsive(md) {
-    }
-    @include responsive(xxl) {
     }
   }
 
   .splide__list {
     @include responsive(md) {
     }
-    @include responsive(xxl) {
-    }
   }
 
   .splide__slide {
+    contain: paint;
     display: block;
     @include responsive(md) {
     }
-    @include responsive(xxl) {
-    }
 
     img {
+      aspect-ratio: 4/5;
       width: 100%;
-      max-height: 480px;
       object-fit: cover;
-      border-radius: min(vw-size-sp(30), 30px * 0.75);
       @include responsive(md) {
-        border-radius: vw-size-pc(30);
       }
-      @include responsive(xxl) {
-        border-radius: 30px;
+    }
+  }
+
+  .splide__pagination {
+    gap: 3px;
+    top: calc(100% + #{sp-size(30)});
+    bottom: auto;
+    @include responsive(md) {
+      top: calc(100% + #{pc-size(15)});
+    }
+  }
+
+  .splide__pagination__page {
+    opacity: 1;
+    margin: 0;
+    transform: none;
+    width: sp-size(45);
+    height: 3px;
+    background-color: $gray;
+    border-radius: 0;
+    transition: $transition;
+    transition-property: background-color;
+    border-radius: 100vmax;
+    @include responsive(md) {
+      width: pc-size(45);
+    }
+
+    &.is-active {
+      background-color: var(--key-color);
+    }
+  }
+
+  .splide__arrow {
+    aspect-ratio: 1;
+    opacity: 1;
+    width: sp-size(60);
+    height: sp-size(60);
+    color: #000;
+    background-color: color.adjust($gray, $alpha: -0.6);
+    backdrop-filter: blur(3px);
+    @include responsive(md) {
+      width: pc-size(60);
+      height: pc-size(60);
+
+      @media (any-hover: hover) {
+        &:hover {
+          opacity: 1;
+          color: var(--key-contrast-color);
+          background-color: var(--key-color);
+        }
       }
+    }
+
+    svg {
+      fill: currentColor;
     }
   }
 }

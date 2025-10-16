@@ -1,8 +1,9 @@
+<%- include(`${root}/src/partials/base/_information_app.ejs`, {page: page}) %>
 <header class="l-header">
   <button class="l-header__menu-button c-menu-button" type="button" id="js-menu-open">
     <span class="icon js-icon--menu u-svg"></span>
   </button>
-  <div class="l-header__inner u-frame">
+  <div class="l-header__inner u-frame--wide">
     <div class="l-header__logo">
       <h1 class="u-visually-hidden"><%= siteName %></h1>
       <%- include('_logo.ejs', {page: page}) %>
@@ -19,15 +20,15 @@
       </ul>
       <!-- /.p-nav__list -->
       <div class="p-nav__icons">
-        <a class="p-nav__icon" href="<%= host %>/membership/mypage/">
+        <a class="p-nav__icon mypage" href="<%= host %>/membership/mypage/">
           <span class="u-visually-hidden">MyPage</span>
           <span class="icon js-icon--mypage u-svg"></span>
         </a>
-        <button class="p-nav__icon" type="button">
+        <button class="p-nav__icon search" type="button">
           <span class="u-visually-hidden">Search</span>
           <span class="icon js-icon--search u-svg"></span>
         </button>
-        <a class="p-nav__icon" href="./">
+        <a class="p-nav__icon cart" href="./">
           <span class="u-visually-hidden">Cart</span>
           <span class="icon js-icon--cart u-svg"></span>
           <div class="cart-qty" style="display: none;">999</div>
@@ -40,5 +41,4 @@
   <!-- /.l-header__inner -->
 </header>
 <!-- /.l-header -->
-
-<%- include(`${root}/src/partials/base/_information_app.ejs`, {page: page}) %>
+<%- include(`${root}/src/partials/_lnav.ejs`, {page: page}) %>

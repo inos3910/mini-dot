@@ -12,7 +12,7 @@
   letter-spacing: 0.06em;
   line-height: 1.5;
   box-shadow: 0 0 0 1px var(--button-border-color, currentColor) inset;
-  border-radius: calc(var(--radius) * 9999);
+  border-radius: 100vmax;
   @include responsive(md) {
     min-width: vw-size-pc(200);
     font-size: vw-size-pc(15);

@@ -2,14 +2,14 @@
 
 .u-frame {
   @include responsive(md) {
-    max-width: calc(min(100vw, #{$bp_WSXGA}) - min(200px, #{vw-size-pc(200)}));
+    max-width: var(--frame-width);
     margin-inline: auto;
   }
 }
 
 .u-frame--wide {
   @include responsive(md) {
-    max-width: calc(100vw - min(60px, #{vw-size-pc(60)}));
+    max-width: var(--frame-width-wide);
     margin-inline: auto;
   }
 }

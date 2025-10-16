@@ -5,15 +5,12 @@
   position: relative;
   z-index: 1;
   width: 100vw;
-  padding-block: min(vw-size-sp(83), 56px) min(vw-size-sp(90), 60px);
+  padding-block: sp-size(75) sp-size(90);
   margin-inline: calc(50% - 50vw);
-  padding-inline: vw-size-sp(30);
+  padding-inline: sp-size(30);
   color: currentColor;
   @include responsive(md) {
-    padding: vw-size-pc(90) 0 vw-size-pc(120);
-  }
-  @include responsive(xxl) {
-    padding-block: 90px 120px;
+    padding: pc-size(75) 0 pc-size(90);
   }
 
   &::before {
@@ -60,7 +57,7 @@
     color: var(--main-bg-color, #000);
     background-color: var(--main-text-color, #fff);
     box-shadow: 0 0 0 1px var(--button-border-color, var(--main-text-color, #fff));
-    border-radius: calc(var(--radius) * 9999);
+    border-radius: 100vmax;
     @include responsive(md) {
       min-width: vw-size-pc(120);
       font-size: vw-size-pc(15);

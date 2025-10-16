@@ -3,6 +3,52 @@
 .l-footer {
   @include responsive(md) {
   }
-  @include responsive(xxl) {
+}
+
+.l-footer__bottom {
+  display: flex;
+  flex-direction: column;
+  row-gap: sp-size(90);
+  @include responsive(md) {
+    flex-direction: row;
+    align-items: center;
+    column-gap: pc-size(36);
+    row-gap: 0;
+    padding-block: pc-size(30);
+  }
+}
+
+.l-footer__sns {
+  @include responsive(md) {
+    order: 2;
+    flex-shrink: 0;
+  }
+}
+
+.l-footer__translation {
+  @include responsive(md) {
+    order: 3;
+    flex-shrink: 0;
+  }
+}
+
+.l-footer__copyright {
+  opacity: 0.6;
+  text-align: center;
+  font-size: sp-size(24);
+  line-height: 1.5;
+  @include responsive(md) {
+    order: 1;
+    margin-right: auto;
+    text-align: left;
+    font-size: pc-size(12);
+
+    @media (any-hover: hover) {
+      transition: $transition;
+      transition-property: opacity;
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }

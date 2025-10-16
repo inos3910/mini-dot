@@ -1,14 +1,17 @@
 @use "global" as *;
 
 .p-top {
+  @include responsive(md) {
+  }
+}
+
+.p-top__contents {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   width: 100%;
-  row-gap: min(vw-size-sp(60), 60px * 0.75);
+  row-gap: sp-size(90);
   @include responsive(md) {
-    row-gap: vw-size-pc(60);
-  }
-  @include responsive(xxl) {
-    row-gap: 60px;
+    margin-top: pc-size(60);
+    row-gap: pc-size(90);
   }
 }

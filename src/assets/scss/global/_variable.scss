@@ -9,8 +9,7 @@ $gray: #ccc;
 $dgray: #555;
 $red: #ee334e;
 
-$point-color: #040628;
-$key-color: $yellow;
+$key-color: $blue;
 $bg-color: #fff;
 
 //shadow
@@ -77,7 +76,7 @@ $bp_base: 1440px;
 //base size
 $w: 1440;
 $w_sp: 750;
-$frame_w: 1240;
+$frame_w: 1040;
 $frame: (math.div($frame_w, $w) * 100vw);
 
 //retina

@@ -4,23 +4,17 @@
   container-type: inline-size;
   @include responsive(md) {
   }
-  @include responsive(xxl) {
-  }
 
   &.is-hide {
     opacity: 0;
-    transform: translateY(9px);
-    transition: 0.8s $ease-custom;
+    transform: translateY(15px);
+    transition: 1s $ease-custom;
     transition-property: opacity, transform;
   }
 
   &.is-active {
     opacity: 1;
     transform: none;
-  }
-
-  .horizontal & {
-    scroll-snap-align: start;
   }
 
   &:is(a) {
@@ -46,8 +40,6 @@
   position: relative;
   @include responsive(md) {
   }
-  @include responsive(xxl) {
-  }
 
   .label_image {
     position: absolute;
@@ -57,8 +49,6 @@
     width: clamp(36px, 16cqi, 60px);
     @include responsive(md) {
     }
-    @include responsive(xxl) {
-    }
   }
 }
 
@@ -66,8 +56,6 @@
   contain: paint;
   border-radius: var(--radius);
   @include responsive(md) {
-  }
-  @include responsive(xxl) {
   }
 
   img {
@@ -83,16 +71,6 @@
   padding-inline: 3px;
   @include responsive(md) {
   }
-  @include responsive(xxl) {
-  }
-
-  .blog-list & {
-    margin-top: min(4.5cqi, 18px);
-    @include responsive(md) {
-    }
-    @include responsive(xxl) {
-    }
-  }
 }
 
 .c-card__title {
@@ -102,21 +80,7 @@
   line-height: 1.5;
   @include responsive(md) {
     margin-bottom: min(2cqi, 6px);
-    font-size: clamp(13px, 4cqi, 18px);
-  }
-  @include responsive(xxl) {
-  }
-
-  .blog-list & {
-    // margin-bottom: min(2.5cqi, 9px);
-    // margin-bottom: min(vw-size-sp(9), 9px);
-    @include responsive(md) {
-      // margin-bottom: min(2.5cqi, 9px);
-      // margin-bottom: vw-size-pc(9);
-    }
-    @include responsive(xxl) {
-      // margin-bottom: 9px;
-    }
+    font-size: clamp(13px, 5cqi, 18px);
   }
 }
 
@@ -126,9 +90,7 @@
   letter-spacing: -0.03em;
   line-height: 1.5;
   @include responsive(md) {
-    font-size: clamp(13px, 4.25cqi, 18px);
-  }
-  @include responsive(xxl) {
+    font-size: clamp(13px, 10cqi, 20px);
   }
 }
 
@@ -140,8 +102,6 @@
   color: var(--sale-color, #{$red});
   @include responsive(md) {
   }
-  @include responsive(xxl) {
-  }
 }
 
 .c-card__sale-tag {
@@ -150,14 +110,10 @@
   letter-spacing: 0;
   @include responsive(md) {
   }
-  @include responsive(xxl) {
-  }
 }
 
 .c-card__sale-price {
   @include responsive(md) {
-  }
-  @include responsive(xxl) {
   }
 }
 
@@ -169,13 +125,8 @@
 
   &:has(.c-card__tag) {
     margin-top: min(5cqi, 18px);
-    // margin-top: min(vw-size-sp(18), 18px);
     @include responsive(md) {
       margin-top: min(3.5cqi, 12px);
-      // margin-top: vw-size-pc(12);
-    }
-    @include responsive(xxl) {
-      // margin-top: 12px;
     }
   }
 }
@@ -185,15 +136,12 @@
   position: relative;
   z-index: 1;
   padding: 0.5em 0.75em;
-
   font-size: clamp(8px, 5cqi, 12px);
   font-weight: 500;
   letter-spacing: 0.015em;
   border-radius: calc(var(--radius) / 2);
   @include responsive(md) {
     font-size: clamp(8px, 2.8cqi, 10px);
-  }
-  @include responsive(xxl) {
   }
 
   &::before {
@@ -213,22 +161,8 @@
 .c-card__date {
   opacity: 0.6;
   font-size: clamp(9px, 6cqi, 12px);
-  // font-size: clamp(9px, vw-size-sp(18), 12px);
   letter-spacing: 0;
   @include responsive(md) {
     font-size: clamp(10px, 3cqi, 12px);
-    // font-size: max(vw-size-pc(12), 9px);
-  }
-  @include responsive(xxl) {
-    // font-size: 12px;
-  }
-
-  .blog-list & {
-    margin-top: min(5cqi, 9px);
-    // margin-top: min(vw-size-sp(18), 18px);
-    @include responsive(md) {
-      margin-top: min(3.5cqi, 12px);
-      // margin-top: vw-size-pc(12);
-    }
   }
 }

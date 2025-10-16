@@ -1,0 +1,16 @@
+<div class="p-kv swiper" id="js-kv-slide">
+  <div class="swiper-wrapper">
+    <% for (var i = 1; i <= 6; i++) { %>
+    <div class="swiper-slide">
+      <a href="<%= host %>/items/?id=<%= i%>">
+        <img src="<%= host %>/src/assets/images/item-<%= i%>.jpg" alt="スライド<%= i%>">
+      </a>
+    </div>
+    <% } %>
+  </div>
+  <!-- /.swiper-wrapper -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+<!-- /.p-kv -->

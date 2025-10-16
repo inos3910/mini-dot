@@ -1,0 +1,32 @@
+@use "sass:color";
+@use "global" as *;
+
+.p-kv {
+  @include responsive(md) {
+    margin-block: pc-size(30) pc-size(90);
+  }
+
+  .swiper-wrapper {
+    @include responsive(md) {
+    }
+  }
+
+  .swiper-slide {
+    contain: paint;
+    display: block;
+    @include responsive(md) {
+    }
+
+    a {
+      display: block;
+    }
+
+    img {
+      aspect-ratio: 4/5;
+      width: 100%;
+      object-fit: cover;
+      @include responsive(md) {
+      }
+    }
+  }
+}

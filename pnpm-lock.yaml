@@ -11,6 +11,9 @@ dependencies:
   '@splidejs/splide-extension-auto-scroll':
     specifier: ^0.5.3
     version: 0.5.3
+  swiper:
+    specifier: ^12.0.2
+    version: 12.0.2
 
 devDependencies:
   autoprefixer:
@@ -1193,6 +1196,11 @@ packages:
     dependencies:
       ansi-regex: 6.2.2
     dev: true
+
+  /swiper@12.0.2:
+    resolution: {integrity: sha512-y8F6fDGXmTVVgwqJj6I00l4FdGuhpFJn0U/9Ucn1MwWOw3NdLV8aH88pZOjyhBgU/6PyBlUx+JuAQ5KMWz906Q==}
+    engines: {node: '>= 4.7.0'}
+    dev: false
 
   /tinyglobby@0.2.15:
     resolution: {integrity: sha512-j2Zq4NyQYG5XMST4cbs02Ak8iJUdxRM0XI5QyxXuZOzKOINmWurp3smXu3y5wDcJrptwpSjgXHzIQxR0omXljQ==}

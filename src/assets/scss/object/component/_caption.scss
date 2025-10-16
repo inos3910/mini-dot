@@ -5,173 +5,42 @@
   flex-direction: column;
   align-items: flex-start;
   max-width: 100%;
-  margin-bottom: min(vw-size-sp(45), 30px);
-  font-size: clamp(10px, vw-size-sp(54), 39px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.4;
-  word-break: auto-phrase;
-  text-wrap: balance;
+  margin-bottom: 1em;
+  font-size: sp-size(45);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
   @include responsive(md) {
-    margin-bottom: vw-size-pc(30);
-    font-size: vw-size-pc(45);
-  }
-  @include responsive(xxl) {
-    margin-bottom: 30px;
-    font-size: 45px;
-  }
-
-  .caption-reverse-position & {
-  }
-
-  .caption-reverse-size & {
-  }
-
-  .caption-reverse-all & {
-  }
-
-  .caption-overlap & {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr);
-    align-items: end;
+    font-size: pc-size(36);
   }
 
   .main {
+    position: relative;
     @include responsive(md) {
     }
-    @include responsive(xxl) {
-    }
 
-    .caption-reverse-position & {
-      order: 2;
-    }
-
-    .caption-reverse-size & {
-      opacity: 0.6;
-      order: 2;
-      font-size: clamp(10px, vw-size-sp(24), 15px);
-      letter-spacing: 0;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: calc(100% + 1em);
+      bottom: 0;
+      margin-block: auto;
+      width: 1em;
+      height: 1px;
+      background-color: currentColor;
       @include responsive(md) {
-        font-size: vw-size-pc(18);
       }
-      @include responsive(xxl) {
-        font-size: 18px;
-      }
-    }
-
-    .caption-reverse-all & {
-      opacity: 0.6;
-      font-size: clamp(10px, vw-size-sp(24), 15px);
-      letter-spacing: 0;
-      @include responsive(md) {
-        font-size: vw-size-pc(18);
-      }
-      @include responsive(xxl) {
-        font-size: 18px;
-      }
-    }
-
-    .caption-overlap & {
-      opacity: 0.15;
-      grid-column: 1;
-      grid-row: 1;
-      margin-left: -0.15em;
-      padding-bottom: 0.15em;
-      font-size: clamp(10px, vw-size-sp(120), 60px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1;
-      @include responsive(md) {
-        font-size: vw-size-pc(120);
-      }
-      @include responsive(xxl) {
-        font-size: 120px;
-      }
-    }
-
-    .caption-hidden-main & {
-      display: none;
     }
   }
 
   .sub {
-    opacity: 0.6;
-    font-size: clamp(10px, vw-size-sp(24), 15px);
-    letter-spacing: 0;
+    opacity: 0.5;
+    font-size: sp-size(21);
+    font-weight: 500;
+    letter-spacing: 0.15em;
     @include responsive(md) {
-      font-size: vw-size-pc(18);
-    }
-    @include responsive(xxl) {
-      font-size: 18px;
-    }
-
-    .caption-reverse-position & {
-      order: 1;
-    }
-
-    .caption-reverse-size & {
-      opacity: 1;
-      order: 1;
-      font-size: clamp(10px, vw-size-sp(54), 39px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.4;
-      @include responsive(md) {
-        font-size: vw-size-pc(45);
-      }
-      @include responsive(xxl) {
-        font-size: 45px;
-      }
-    }
-
-    .caption-reverse-all & {
-      opacity: 1;
-      font-size: clamp(10px, vw-size-sp(54), 39px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.4;
-      @include responsive(md) {
-        font-size: vw-size-pc(45);
-      }
-      @include responsive(xxl) {
-        font-size: 45px;
-      }
-    }
-
-    .caption-overlap & {
-      opacity: 1;
-      grid-column: 1;
-      grid-row: 1;
-      z-index: 10;
-      font-size: clamp(10px, vw-size-sp(45), 30px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.4;
-      @include responsive(md) {
-        font-size: vw-size-pc(45);
-      }
-      @include responsive(xxl) {
-        font-size: 45px;
-      }
-    }
-
-    .caption-hidden-sub & {
-      display: none;
-    }
-
-    .caption-hidden-main & {
-      opacity: 1;
-      font-size: clamp(10px, vw-size-sp(54), 39px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.4;
-      @include responsive(md) {
-        font-size: vw-size-pc(45);
-      }
-      @include responsive(xxl) {
-        font-size: 45px;
-      }
+      font-size: pc-size(15);
     }
   }
 }

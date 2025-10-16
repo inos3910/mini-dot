@@ -13,16 +13,14 @@
   --font-code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   --main-text-color: #{$black};
   --main-bg-color: #{$bg-color};
-  --key-contrast-color: #000;
+  --key-contrast-color: #fff;
   --key-color: #{$key-color};
-  --header-height: min(#{vw-size-sp(120)}, 90px);
+  --header-height: #{sp-size(120)};
   @include responsive(md) {
-    --header-height: #{vw-size-pc(90)};
-    --box-shadow-primary: vw-size-pc(0.5) vw-size-pc(0.866) vw-size-pc(29.7) vw-size-pc(0.3) #{rgba(#000, 0.1)};
-  }
-  @include responsive(xxl) {
-    --header-height: 90px;
-    --box-shadow-primary: 0.5px 0.866px 29.7px 0.3px #{rgba(#000, 0.1)};
+    --header-height: #{pc-size(90)};
+    --frame-width: calc(min(100vw - min(400px, #{vw-size-pc(400)}), #{$bp_xlpc}));
+    --frame-width-wide: min(calc(100vw - min(200px, #{vw-size-pc(200)})), #{$bp_WUXGA});
+    --max-w-ratio: calc(#{$w} / #{$frame_w});
   }
 }
 
