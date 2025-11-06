@@ -1,8 +1,5 @@
 <%- include(`${root}/src/partials/base/_information_app.ejs`, {page: page}) %>
 <header class="l-header">
-  <button class="l-header__menu-button c-menu-button" type="button" id="js-menu-open">
-    <span class="icon js-icon--menu u-svg"></span>
-  </button>
   <div class="l-header__inner u-frame--wide">
     <div class="l-header__logo">
       <h1 class="u-visually-hidden"><%= siteName %></h1>
@@ -39,6 +36,9 @@
     <!-- /.l-header__nav.p-nav -->
   </div>
   <!-- /.l-header__inner -->
+  <button class="l-header__menu-button c-menu-button" type="button" id="js-menu-open">
+    <span class="icon js-icon--menu u-svg"></span>
+  </button>
 </header>
 <!-- /.l-header -->
 <%- include(`${root}/src/partials/_lnav.ejs`, {page: page}) %>

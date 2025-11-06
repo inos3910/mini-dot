@@ -3,13 +3,9 @@
 .c-newsletter {
   @include responsive(md) {
   }
-  @include responsive(xxl) {
-  }
 
   .mailMagazineSubscribe_form {
     @include responsive(md) {
-    }
-    @include responsive(xxl) {
     }
   }
 
@@ -21,13 +17,10 @@
     height: 100%;
     color: #000;
     background-color: #f1f1f1;
-    border-radius: calc(var(--radius) * 9999);
+    border-radius: 100vmax;
     transition: $transition;
     transition-property: box-shadow;
     @include responsive(md) {
-      // max-width: 285px;
-    }
-    @include responsive(xxl) {
     }
 
     &:focus-within {
@@ -59,11 +52,7 @@
     transition: none;
     @include responsive(md) {
       padding: 1em 0 1em 1.5em;
-      // font-size: max(vw-size-pc(12), 10px);
       font-size: 12px;
-    }
-    @include responsive(xxl) {
-      // font-size: 12px;
     }
   }
 
@@ -77,16 +66,10 @@
     margin-left: auto;
     font-size: 0;
     background-color: currentColor;
-    mask: inline("icon-arrow-right.svg") no-repeat center center / clamp(16px, vw-size-sp(32), 18px);
+    mask: url("@assets/svg/icon-send.svg?inline") no-repeat center center / clamp(16px, vw-size-sp(32), 18px);
     @include responsive(md) {
-      // width: vw-size-pc(45);
-      // mask-size: max(vw-size-pc(12), 10px);
       width: 45px;
       mask-size: 12px;
-    }
-    @include responsive(xxl) {
-      // width: 45px;
-      // mask-size: 12px;
     }
 
     @media (any-hover: hover) {
@@ -106,17 +89,12 @@
   }
 
   .mailMagazineSubscribe_confirm {
-    margin-top: vw-size-sp(18);
-    font-size: clamp(10px, vw-size-sp(24), 15px);
-    line-height: 2;
+    margin-top: sp-size(18);
+    font-size: sp-size(24);
+    line-height: 1.6;
     @include responsive(md) {
-      margin-top: vw-size-pc(18);
-      font-size: max(vw-size-pc(12), 10px);
-      @include lh(12, 21);
-    }
-    @include responsive(xxl) {
-      margin-top: 18px;
-      font-size: 12px;
+      margin-top: pc-size(18);
+      font-size: pc-size(12);
     }
 
     &:empty {
@@ -128,21 +106,14 @@
 .c-newsletter__caption {
   @include responsive(md) {
   }
-  @include responsive(xxl) {
-  }
 }
 
 .c-newsletter__description {
-  margin-bottom: min(vw-size-sp(18), 15px);
-  font-size: clamp(10px, vw-size-sp(24), 12px);
-  line-height: 2;
+  margin-bottom: sp-size(18);
+  font-size: sp-size(24);
+  line-height: 1.6;
   @include responsive(md) {
-    margin-bottom: vw-size-pc(18);
-    font-size: vw-size-pc(12);
-    line-height: 1.66;
-  }
-  @include responsive(xxl) {
-    margin-bottom: 18px;
-    font-size: 12px;
+    margin-bottom: pc-size(18);
+    font-size: pc-size(10);
   }
 }

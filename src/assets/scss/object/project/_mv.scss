@@ -2,87 +2,141 @@
 @use "global" as *;
 
 .p-mv {
+  --slide-spacing: #{sp-size(24)};
+  --slide-size: 30%;
+  position: relative;
+  overflow-x: clip;
   @include responsive(md) {
+    --slide-spacing: #{pc-size(24)};
     margin-block: pc-size(30) pc-size(90);
   }
+}
 
-  .splide__track {
-    @include responsive(md) {
-    }
+.p-mv__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+  @include responsive(md) {
+  }
+}
+
+.p-mv__item {
+  flex: 0 0 30%;
+  min-width: 0;
+  @include responsive(md) {
+    padding-left: var(--slide-spacing);
   }
 
-  .splide__list {
-    @include responsive(md) {
-    }
-  }
-
-  .splide__slide {
-    contain: paint;
+  a {
     display: block;
     @include responsive(md) {
-    }
-
-    img {
-      aspect-ratio: 4/5;
-      width: 100%;
-      object-fit: cover;
-      @include responsive(md) {
-      }
-    }
-  }
-
-  .splide__pagination {
-    gap: 3px;
-    top: calc(100% + #{sp-size(30)});
-    bottom: auto;
-    @include responsive(md) {
-      top: calc(100% + #{pc-size(15)});
-    }
-  }
-
-  .splide__pagination__page {
-    opacity: 1;
-    margin: 0;
-    transform: none;
-    width: sp-size(45);
-    height: 3px;
-    background-color: $gray;
-    border-radius: 0;
-    transition: $transition;
-    transition-property: background-color;
-    border-radius: 100vmax;
-    @include responsive(md) {
-      width: pc-size(45);
-    }
-
-    &.is-active {
-      background-color: var(--key-color);
-    }
-  }
-
-  .splide__arrow {
-    aspect-ratio: 1;
-    opacity: 1;
-    width: sp-size(60);
-    height: sp-size(60);
-    color: #000;
-    background-color: color.adjust($gray, $alpha: -0.6);
-    backdrop-filter: blur(3px);
-    @include responsive(md) {
-      width: pc-size(60);
-      height: pc-size(60);
-
       @media (any-hover: hover) {
+        img {
+          transition: $transition;
+          transition-property: opacity;
+        }
+
         &:hover {
-          opacity: 1;
-          color: var(--key-contrast-color);
-          background-color: var(--key-color);
+          img {
+            opacity: 0.8;
+          }
         }
       }
     }
+  }
 
-    svg {
-      fill: currentColor;
+  img {
+    aspect-ratio: 4/5;
+    width: 100%;
+    object-fit: cover;
+    @include responsive(md) {
     }
+  }
+}
+
+.p-mv__button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  width: sp-size(60);
+  height: sp-size(60);
+  margin-block: auto;
+  color: #000;
+  background-color: color.adjust(#fff, $alpha: -0.6);
+  backdrop-filter: blur(3px);
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+  @include responsive(md) {
+    width: pc-size(39);
+    height: pc-size(39);
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--key-contrast-color);
+        background-color: var(--key-color);
+      }
+    }
+  }
+
+  &.prev {
+    left: 0;
+    @include responsive(md) {
+      left: pc-size(42);
+    }
+  }
+
+  &.next {
+    right: 0;
+    @include responsive(md) {
+      right: pc-size(42);
+    }
+  }
+
+  .icon {
+    display: block;
+    aspect-ratio: 1;
+    width: 40%;
+  }
+}
+
+.p-mv__dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  margin-top: sp-size(30);
+  @include responsive(md) {
+    margin-top: pc-size(30);
+  }
+
+  .dot {
+    // aspect-ratio: 1;
+    width: sp-size(39);
+    height: 3px;
+    background-color: $gray;
+    border-radius: 100vmax;
+    transition: $transition;
+    transition-property: background-color;
+    @include responsive(md) {
+      width: pc-size(39);
+    }
+
+    &:not(.dot--selected) {
+      @include responsive(md) {
+        @media (any-hover: hover) {
+          &:hover {
+            background-color: color.adjust($gray, $blackness: 20%);
+          }
+        }
+      }
+    }
+  }
+  .dot--selected {
+    background-color: var(--key-color);
   }
 }

@@ -1,64 +1,102 @@
-import '@splidejs/splide/css';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
-import 'swiper/css/keyboard';
-import 'swiper/css/mousewheel';
 import '../scss/_style.scss';
 
-import Swiper from 'swiper';
-import {
-  Navigation,
-  Pagination,
-  Mousewheel,
-  Autoplay,
-  Keyboard,
-} from 'swiper/modules';
-import { Splide } from '@splidejs/splide';
+import EmblaCarousel from 'embla-carousel';
+import ClassNames from 'embla-carousel-class-names';
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
+import Autoplay from 'embla-carousel-autoplay';
+import { addDotBtnsAndClickHandlers } from './EmblaCarouselDotButton';
+import { addPrevNextBtnsClickHandlers } from './EmblaCarouselArrowButtons';
 
 initMain();
 
 function initMain() {
-  mvSlide();
-  kvSlide();
+  mvCarousel();
   observeCartQty();
 }
 
-function kvSlide() {
-  const target = document.querySelector('#js-kv-slide');
-  if (!target) {
+function mvCarousel() {
+  const rootNode = document.querySelector('.js-slide');
+  if (!rootNode) {
+    return;
+  }
+  const viewportNode = rootNode.querySelector('.js-slide-list');
+  if (!viewportNode) {
     return;
   }
 
-  new Swiper(target, {
-    modules: [Navigation, Pagination, Mousewheel, Autoplay, Keyboard],
-    pagination: {
-      el: '.swiper-pagination',
-    },
-    mousewheel: {
-      forceToAxis: true,
-    },
-    keyboard: {
-      enabled: true,
-    },
-    centeredSlides: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    speed: 800,
-    slidesPerView: 1.2,
-    spaceBetween: `${(30 / 750) * 100}%`,
-    loop: true,
-    breakpoints: {
-      801: {
-        slidesPerView: 3.25,
-        spaceBetween: `${(15 / 1440) * 100}%`,
-      },
-    },
-  });
+  const prevButtonNode = rootNode.querySelector('.js-slide-prev');
+  const nextButtonNode = rootNode.querySelector('.js-slide-next');
+  const dotsNode = rootNode.querySelector('.js-slide-dots');
+
+  const options = { loop: true, skipSnaps: true };
+  const emblaApi = EmblaCarousel(viewportNode, options, [
+    ClassNames(),
+    Autoplay({ delay: 5000 }),
+    WheelGesturesPlugin({ forceWheelAxis: 'x' }),
+  ]);
+
+  const onNavButtonClick = (emblaApi) => {
+    const autoplay = emblaApi?.plugins()?.autoplay;
+    if (!autoplay) return;
+
+    const resetOrStop =
+      autoplay.options.stopOnInteraction === false
+        ? autoplay.reset
+        : autoplay.stop;
+
+    resetOrStop();
+  };
+
+  const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
+    emblaApi,
+    prevButtonNode,
+    nextButtonNode,
+    onNavButtonClick
+  );
+
+  const removeDotBtnsAndClickHandlers = addDotBtnsAndClickHandlers(
+    emblaApi,
+    dotsNode,
+    onNavButtonClick
+  );
+  emblaApi.on('destroy', removePrevNextBtnsClickHandlers);
+  emblaApi.on('destroy', removeDotBtnsAndClickHandlers);
 }
+
+// function kvSlide() {
+//   const target = document.querySelector('#js-kv-slide');
+//   if (!target) {
+//     return;
+//   }
+
+//   new Swiper(target, {
+//     modules: [Navigation, Pagination, Mousewheel, Autoplay, Keyboard],
+//     pagination: {
+//       el: '.swiper-pagination',
+//     },
+//     mousewheel: {
+//       forceToAxis: true,
+//     },
+//     keyboard: {
+//       enabled: true,
+//     },
+//     centeredSlides: true,
+//     autoplay: {
+//       delay: 5000,
+//       disableOnInteraction: false,
+//     },
+//     speed: 800,
+//     slidesPerView: 1.2,
+//     spaceBetween: `${(30 / 750) * 100}%`,
+//     loop: true,
+//     breakpoints: {
+//       801: {
+//         slidesPerView: 3.25,
+//         spaceBetween: `${(15 / 1440) * 100}%`,
+//       },
+//     },
+//   });
+// }
 
 function mvSlide() {
   const target = document.querySelector('.js-mv-slide');

@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.c-shipping {
+  @include responsive(md) {
+    font-size: pc-size(12);
+    line-height: 1.8;
+  }
+}

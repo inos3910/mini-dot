@@ -23,11 +23,11 @@
       content: "";
       position: absolute;
       top: 0;
-      right: calc(100% + 1em);
+      right: calc(100% + 0.75em);
       bottom: 0;
       margin-block: auto;
-      width: 1em;
-      height: 1px;
+      width: 1.5em;
+      height: 2px;
       background-color: currentColor;
       @include responsive(md) {
       }

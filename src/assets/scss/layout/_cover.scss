@@ -1,6 +1,7 @@
 @use "global" as *;
 
 .l-cover {
+  overflow-x: clip;
   @include responsive(md) {
   }
   @include responsive(xxl) {

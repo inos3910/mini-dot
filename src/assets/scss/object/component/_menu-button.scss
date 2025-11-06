@@ -3,18 +3,41 @@
 .c-menu-button {
   position: absolute;
   top: 0;
-  left: 0;
+  bottom: 0;
+  right: 0;
   z-index: 200;
   display: grid;
   place-items: center;
-  width: min(vw-size-sp(90), 90px * 0.75);
-  height: min(vw-size-sp(90), 90px * 0.75);
+  aspect-ratio: 1;
+  width: var(--header-height);
+  margin-block: auto;
   @include responsive(md) {
-    width: min(vw-size-pc(90), 90px);
-    height: min(vw-size-pc(90), 90px);
+    @media (any-hover: hover) {
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        aspect-ratio: 1;
+        width: 75%;
+        margin: auto;
+        border-radius: 50%;
+        background-color: currentColor;
+        transition: $transition;
+        transition-property: opacity, transform;
+        opacity: 0;
+        transform: scale(0.75);
+      }
+
+      &:hover {
+        &::before {
+          opacity: 0.05;
+          transform: none;
+        }
+      }
+    }
   }
-  @include responsive(xxl) {
-  }
+
   .icon {
     display: block;
     width: min(vw-size-sp(24), 24px * 0.75);
@@ -22,8 +45,6 @@
     @include responsive(md) {
       width: min(vw-size-pc(24), 24px);
       height: min(vw-size-pc(24), 24px);
-    }
-    @include responsive(xxl) {
     }
   }
 }
