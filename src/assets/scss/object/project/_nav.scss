@@ -5,9 +5,7 @@
     display: grid;
     align-items: center;
     grid-template-columns: minmax(0, 1fr) auto;
-    column-gap: min(vw-size-pc(30), 30px);
-  }
-  @include responsive(xxl) {
+    column-gap: pc-size(30);
   }
 }
 
@@ -16,18 +14,14 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    column-gap: min(vw-size-pc(30), 30px);
-  }
-  @include responsive(xxl) {
+    column-gap: pc-size(30);
   }
 }
 
 .p-nav__item {
   @include responsive(md) {
-    font-size: min(vw-size-pc(12), 12px);
+    font-size: pc-size(12);
     letter-spacing: 0.03em;
-  }
-  @include responsive(xxl) {
   }
 
   a {
@@ -72,7 +66,7 @@
   justify-content: center;
   align-items: center;
   @include responsive(md) {
-    column-gap: min(vw-size-pc(24), 24px);
+    column-gap: pc-size(24);
   }
   @include responsive(xxl) {
   }
@@ -80,8 +74,8 @@
 
 .p-nav__icon {
   @include responsive(md) {
-    width: min(vw-size-pc(18), 18px);
-    height: min(vw-size-pc(18), 18px);
+    width: pc-size(18);
+    height: pc-size(18);
   }
   @include responsive(xxl) {
   }
@@ -120,17 +114,14 @@
       min-width: 2em;
       text-align: center;
       white-space: nowrap;
-      font-size: min(vw-size-sp(16), 16px * 0.75);
+      font-size: sp-size(16);
       font-weight: 700;
       color: var(--main-bg-color);
       background: var(--main-text-color);
       border-radius: 50%;
 
       @include responsive(md) {
-        font-size: vw-size-pc(9);
-      }
-      @include responsive(xl) {
-        font-size: 9px;
+        font-size: pc-size(9);
       }
     }
   }

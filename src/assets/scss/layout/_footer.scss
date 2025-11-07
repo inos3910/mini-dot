@@ -1,3 +1,4 @@
+@use "sass:string";
 @use "global" as *;
 
 .l-footer {
@@ -8,25 +9,60 @@
 .l-footer__inner {
   @include responsive(md) {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: pc-size(90) pc-size(30);
+    grid-template-columns: minmax(0, 1fr);
+    gap: pc-size(90);
     padding-block: pc-size(90);
   }
 }
 
+.l-footer__cols {
+  @include responsive(md) {
+    display: flex;
+    gap: pc-size(39);
+  }
+}
+
 .l-footer__unit {
-  width: 100%;
   @include responsive(md) {
   }
 
   &.shopping {
-    grid-column: 1/-1;
+    width: 100%;
+  }
+
+  &.menu {
+    flex-shrink: 0;
+    min-width: min-content;
+    max-width: pc-size(150);
+  }
+
+  &.others {
+    flex-shrink: 0;
+    min-width: min-content;
+    max-width: pc-size(200);
+  }
+
+  &.payment {
+    flex-shrink: 0;
+    max-width: pc-size(255);
+  }
+
+  &.shipping {
+    flex-grow: 1;
+    max-width: string.unquote("calc(100% / 3)");
+  }
+
+  &.newsletter {
+    flex-shrink: 0;
+    flex-grow: 1;
+    min-width: pc-size(240);
+    max-width: pc-size(300);
   }
 }
 
 .l-footer__caption {
   margin-bottom: 1.5em;
-  font-weight: 600;
+  font-weight: 700;
   @include responsive(md) {
     font-size: pc-size(15);
   }
@@ -53,7 +89,7 @@
 
       > a {
         display: block;
-        padding-block: 1em;
+        padding: 1em 0.5em;
         @include responsive(md) {
           font-weight: 500;
           border-bottom: 1px solid;
@@ -89,7 +125,21 @@
         flex-direction: column;
         row-gap: 0.75em;
         margin-top: 1.5em;
+        padding-inline: 0.5em;
         @include responsive(md) {
+        }
+
+        a {
+          @include responsive(md) {
+            @media (any-hover: hover) {
+              transition: $transition;
+              transition-property: opacity;
+
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
         }
       }
     }
@@ -103,6 +153,19 @@
   line-height: 1.6;
   @include responsive(md) {
     font-size: pc-size(12);
+  }
+
+  a {
+    @include responsive(md) {
+      @media (any-hover: hover) {
+        transition: $transition;
+        transition-property: opacity;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
   }
 }
 

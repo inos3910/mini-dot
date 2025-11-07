@@ -5,15 +5,15 @@
 
   const srcs = {
     gothic:
-      'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap',
+      'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&display=swap',
     mincho:
-      'https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap',
+      'https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Serif+JP:wght@200..900&display=swap',
     maru: 'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap',
   };
 
   const loadFonts = {
-    gothic: ['Inter', '"Zen Kaku Gothic Antique"'],
-    mincho: ['Wittgenstein', '"Noto Serif JP"'],
+    gothic: ['Inter', '"Noto Sans JP"'],
+    mincho: ['Lora', '"Noto Serif JP"'],
     maru: ['Nunito', '"M PLUS Rounded 1c"'],
   };
 

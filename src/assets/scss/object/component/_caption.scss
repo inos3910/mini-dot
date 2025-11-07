@@ -7,11 +7,11 @@
   max-width: 100%;
   margin-bottom: 1em;
   font-size: sp-size(45);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.6;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   @include responsive(md) {
-    font-size: pc-size(36);
+    font-size: pc-size(30);
   }
 
   .main {
@@ -23,10 +23,10 @@
       content: "";
       position: absolute;
       top: 0;
-      right: calc(100% + 0.75em);
+      right: calc(100% + 20 / 30 * 1em);
       bottom: 0;
       margin-block: auto;
-      width: 1.5em;
+      width: 1em;
       height: 2px;
       background-color: currentColor;
       @include responsive(md) {
@@ -36,11 +36,10 @@
 
   .sub {
     opacity: 0.5;
-    font-size: sp-size(21);
+    font-size: 0.5em;
     font-weight: 500;
     letter-spacing: 0.15em;
     @include responsive(md) {
-      font-size: pc-size(15);
     }
   }
 }

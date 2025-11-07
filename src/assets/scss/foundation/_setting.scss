@@ -19,7 +19,7 @@
   --box-shadow: #{sp-size(0.5)} #{sp-size(0.866)} #{sp-size(29.7)} #{sp-size(0.3)} #{rgba(#000, 0.15)};
   @include responsive(md) {
     --header-height: #{pc-size(90)};
-    --frame-width: calc(min(100vw - #{pc-size(300)}, #{$bp_xlpc}));
+    --frame-width: min(100vw - #{pc-size(300)}, #{$bp_xlpc});
     // --frame-width-wide: min(calc(100vw - min(200px, #{vw-size-pc(200)})), #{$bp_WUXGA});
     --frame-width-wide: calc(100vw - #{pc-size(200)});
     --max-w-ratio: calc(#{$w} / #{$frame_w});

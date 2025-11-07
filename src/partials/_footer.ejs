@@ -8,62 +8,65 @@
       <!-- /.l-footer__category -->
     </div>
     <!-- /.l-footer__unit -->
-    <div class="l-footer__unit menu">
-      <div class="l-footer__caption">MENU</div>
-      <ul class="l-footer__list">
-        <li><a href="<%= host %>">HOME</a></li>
-        <li><a href="<%= host %>/about/">ABOUT</a></li>
-        <li><a href="<%= host %>/blog/">BLOG</a></li>
-        <li><a href="<%= host %>/community/">COMMUNITY</a></li>
-        <li><a href="<%= host %>/membership/">MEMBERSHIP</a></li>
-        <li><a href="<%= host %>/contact/">CONTACT</a></li>
-      </ul>
-      <!-- /.l-footer__list -->
-    </div>
-    <!-- /.l-footer__unit -->
-    <div class="l-footer__unit others">
-      <div class="l-footer__caption">OTHERS</div>
-      <ul class="l-footer__list">
-        <li><a href="<%= host %>/privacy/">プライバシーポリシー</a></li>
-        <li><a href="<%= host %>/law/">特定商取引法に基づく表記</a></li>
-        <li><a href="<%= host %>/" target="_blank" rel="noopener noreferrer">会員規約</a></li>
-        <li><a href="https://fromo.dev/" target="_blank" rel="noopener">FROMO</a></li>
-      </ul>
-      <!-- /.l-footer__list -->
-    </div>
-    <!-- /.l-footer__unit -->
-    <div class="l-footer__unit payment">
-      <div class="l-footer__caption">PAYMENTS</div>
-      <div class="c-payment">
-        <ul class="c-payment__list">
-          <li class="c-payment__item">クレジットカード決済</li>
-          <li class="c-payment__item">あと払い（Pay ID）</li>
-          <li class="c-payment__item">Amazon Pay</li>
-          <li class="c-payment__item">コンビニ支払い・Pay-easy</li>
-          <li class="c-payment__item">キャリア決済</li>
-          <li class="c-payment__item">銀行振り込み</li>
-          <li class="c-payment__item">PayPal決済</li>
+    <div class="l-footer__cols">
+      <div class="l-footer__unit menu">
+        <div class="l-footer__caption">MENU</div>
+        <ul class="l-footer__list">
+          <li><a href="<%= host %>">HOME</a></li>
+          <li><a href="<%= host %>/about/">ABOUT</a></li>
+          <li><a href="<%= host %>/blog/">BLOG</a></li>
+          <li><a href="<%= host %>/community/">COMMUNITY</a></li>
+          <li><a href="<%= host %>/membership/">MEMBERSHIP</a></li>
+          <li><a href="<%= host %>/contact/">CONTACT</a></li>
         </ul>
-        <p class="c-payment__notes u-preline">*ここにお支払い方法についての注釈が入ります。</p>
+        <!-- /.l-footer__list -->
       </div>
-      <!-- /.c-newsletter -->
-    </div>
-    <!-- /.l-footer__unit -->
-    <div class="l-footer__unit shipping">
-      <div class="l-footer__caption">SHIPPING AND DELIVERY</div>
-      <div class="c-shipping u-preline">ご注文金額が税込5,000円以上の場合は全国送料無料となります。
-        5,000円未満のご注文には一律送料500円を頂戴いたします。北海道・沖縄・離島へのお届けは追加料金が発生する場合がございます。</div>
-    </div>
-    <!-- /.l-footer__unit -->
-    <div class="l-footer__unit newsletter">
-      <div class="l-footer__caption">NEWSLETTER</div>
-      <div class="c-newsletter">
-        <div class="c-newsletter__description u-preline">最新情報をいち早くメールでお届けします。</div>
-        <%- include(`${root}/src/partials/base/_newsletter.ejs`, {page: page}) %>
+      <!-- /.l-footer__unit -->
+      <div class="l-footer__unit others">
+        <div class="l-footer__caption">OTHERS</div>
+        <ul class="l-footer__list">
+          <li><a href="<%= host %>/privacy/">プライバシーポリシー</a></li>
+          <li><a href="<%= host %>/law/">特定商取引法に基づく表記</a></li>
+          <li><a href="<%= host %>/" target="_blank" rel="noopener noreferrer">会員規約</a></li>
+          <li><a href="https://fromo.dev/" target="_blank" rel="noopener">FROMO</a></li>
+        </ul>
+        <!-- /.l-footer__list -->
       </div>
-      <!-- /.c-newsletter -->
+      <!-- /.l-footer__unit -->
+      <div class="l-footer__unit payment">
+        <div class="l-footer__caption">PAYMENTS</div>
+        <div class="c-payment">
+          <ul class="c-payment__list">
+            <li class="c-payment__item">クレジットカード決済</li>
+            <li class="c-payment__item">あと払い（Pay ID）</li>
+            <li class="c-payment__item">Amazon Pay</li>
+            <li class="c-payment__item">コンビニ支払い・Pay-easy</li>
+            <li class="c-payment__item">キャリア決済</li>
+            <li class="c-payment__item">銀行振り込み</li>
+            <li class="c-payment__item">PayPal決済</li>
+          </ul>
+          <p class="c-payment__notes u-preline">*ここにお支払い方法についての注釈が入ります。</p>
+        </div>
+        <!-- /.c-newsletter -->
+      </div>
+      <!-- /.l-footer__unit -->
+      <div class="l-footer__unit shipping">
+        <div class="l-footer__caption">SHIPPING AND DELIVERY</div>
+        <div class="c-shipping u-preline">ご注文金額が税込5,000円以上の場合は全国送料無料となります。
+          5,000円未満のご注文には一律送料500円を頂戴いたします。北海道・沖縄・離島へのお届けは追加料金が発生する場合がございます。</div>
+      </div>
+      <!-- /.l-footer__unit -->
+      <div class="l-footer__unit newsletter">
+        <div class="l-footer__caption">NEWSLETTER</div>
+        <div class="c-newsletter">
+          <div class="c-newsletter__description u-preline">最新情報をいち早くメールでお届けします。</div>
+          <%- include(`${root}/src/partials/base/_newsletter.ejs`, {page: page}) %>
+        </div>
+        <!-- /.c-newsletter -->
+      </div>
+      <!-- /.l-footer__unit -->
     </div>
-    <!-- /.l-footer__unit -->
+    <!-- /.l-footer__cols -->
   </div>
   <!-- /.l-footer__inner -->
   <div class="l-footer__bottom u-frame--wide">

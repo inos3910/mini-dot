@@ -26,7 +26,7 @@
 .p-lnav__inner {
   @include responsive(md) {
     display: flex;
-    gap: pc-size(15);
+    gap: pc-size(9);
     padding-top: pc-size(15);
     padding-bottom: pc-size(15);
   }
@@ -36,18 +36,15 @@
 
 .p-lnav__item {
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.03em;
   @include responsive(md) {
-    font-size: vw-size-pc(12);
-  }
-  @include responsive(xxl) {
-    font-size: 12px;
+    font-size: pc-size(12);
   }
 
   a {
     display: grid;
     place-items: center;
-    padding: 0.75em 1.5em;
+    padding: 0.6em 1.2em;
     color: var(--main-text-color);
     background-color: var(--main-bg-color);
     border-radius: 100vmax;
