@@ -1,0 +1,36 @@
+@use "global" as *;
+
+.p-menu {
+  contain: paint;
+  pointer-events: none;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -ms-overflow-style: none; /* IE, Edge 対応 */
+  scrollbar-width: none; /* Firefox 対応 */
+  position: fixed;
+  top: 0;
+  right: 100%;
+  z-index: 1000;
+  width: min(vw-size-sp(600), 300px);
+  height: 100%;
+  padding-inline: min(#{vw-size-sp(30)}, 18px);
+  padding-bottom: var(--header-height);
+  color: var(--drawer-text-color, #fff);
+  background-color: var(--drawer-bg-color, #000);
+  transition: 0.5s $ease-custom;
+  transition-property: transform;
+  @include responsive(md) {
+    padding-inline: 24px;
+  }
+  @include responsive(xxl) {
+  }
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari 対応 */
+  }
+
+  .is-menu-active & {
+    pointer-events: auto;
+    transform: translateX(100%);
+  }
+}

@@ -1,5 +1,5 @@
 <%- include(`${root}/src/partials/base/_information_app.ejs`, {page: page}) %>
-<header class="l-header">
+<header class="l-header" id="js-header">
   <div class="l-header__inner u-frame--wide">
     <div class="l-header__logo">
       <h1 class="u-visually-hidden"><%= siteName %></h1>
@@ -42,3 +42,4 @@
 </header>
 <!-- /.l-header -->
 <%- include(`${root}/src/partials/_lnav.ejs`, {page: page}) %>
+<%- include(`${root}/src/partials/_menu.ejs`, {page: page}) %>

@@ -43,7 +43,7 @@ function ejsApiPlugin() {
 
             res.setHeader(
               'Content-Type',
-              ext === 'json' ? 'application/json' : 'application/xml'
+              ext === 'json' ? 'application/json' : 'application/xml',
             );
             res.end(rendered);
             return;
@@ -55,17 +55,17 @@ function ejsApiPlugin() {
   };
 }
 
-const jsFiles = Object.fromEntries(
-  globSync('src/**/*.js', {
-    ignore: ['node_modules/**', '**/modules/**', '**/dist/**'],
-  }).map((file) => [
-    path.relative(
-      'src',
-      file.slice(0, file.length - path.extname(file).length)
-    ),
-    fileURLToPath(new URL(file, import.meta.url)),
-  ])
-);
+const jsFiles = {
+  'assets/js/main': fileURLToPath(
+    new URL('./src/assets/js/main.js', import.meta.url),
+  ),
+  'assets/js/icon': fileURLToPath(
+    new URL('./src/assets/js/icon.js', import.meta.url),
+  ),
+  'assets/js/font': fileURLToPath(
+    new URL('./src/assets/js/font.js', import.meta.url),
+  ),
+};
 
 const scssFiles = Object.fromEntries(
   globSync('src/scss/**/*.scss', {
@@ -73,15 +73,17 @@ const scssFiles = Object.fromEntries(
   }).map((file) => [
     path.relative(
       'src/scss',
-      file.slice(0, file.length - path.extname(file).length)
+      file.slice(0, file.length - path.extname(file).length),
     ),
     fileURLToPath(new URL(file, import.meta.url)),
-  ])
+  ]),
 );
 
 const inputObject = { ...scssFiles, ...jsFiles };
 
 export default defineConfig(({ command, mode }) => {
+  const isDev = command === 'serve';
+
   return {
     plugins: [
       // 開発サーバーで擬似API
@@ -93,6 +95,7 @@ export default defineConfig(({ command, mode }) => {
           root: viteConfig.root,
           host: 'http://localhost:5173',
           siteName: 'mini.〈ミニドット〉',
+          isDev,
         };
       }),
       liveReload([__dirname + '/**/*.ejs', __dirname + '/api/**/*']),
@@ -111,6 +114,7 @@ export default defineConfig(({ command, mode }) => {
       rollupOptions: {
         input: inputObject,
         output: {
+          format: 'iife',
           entryFileNames: `assets/[name].js`,
           chunkFileNames: `assets/[name].js`,
           assetFileNames: (assetInfo) => {

@@ -11,12 +11,21 @@
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+ <% if (isDev) { %>
  <link rel="preload" as="script" href="<%= host %>/src/assets/js/font.js?<%= now %>" fetchpriority="high">
  <link rel="preload" as="script" href="<%= host %>/src/assets/js/icon.js?<%= now %>" fetchpriority="high">
  <link rel="preload" as="script" href="<%= host %>/src/assets/js/main.js?<%= now %>" fetchpriority="high">
 
  <script type="module" src="<%= host %>/src/assets/js/font.js" async></script>
  <script type="module" src="<%= host %>/src/assets/js/icon.js" async></script>
+ <% } else { %>
+ <link rel="preload" as="script" href="./assets/assets/js/font.js" fetchpriority="high">
+ <link rel="preload" as="script" href="./assets/assets/js/icon.js" fetchpriority="high">
+ <link rel="preload" as="script" href="./assets/assets/js/main.js" fetchpriority="high">
+
+ <script src="./assets/assets/js/font.js" async></script>
+ <script src="./assets/assets/js/icon.js" async></script>
+ <% } %>
  <style type="text/css">
    body {
      background-image: none;
@@ -52,4 +61,8 @@
      showLastOne: true,
    };
  </script>
+ <% if (isDev) { %>
  <script type="module" src="<%= host %>/src/assets/js/main.js"></script>
+ <% } else { %>
+ <script src="./assets/assets/js/main.js"></script>
+ <% } %>
